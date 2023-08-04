@@ -10,4 +10,8 @@ $(document).ready(function() {
             } 
         })
     }
+
+    if($('.cs-tables').length) {
+        $('.cs-tables').before('<br /><br />');
+    }
 })

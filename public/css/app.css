@@ -1,3 +1,7 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Navigation */
 .cs-navigation {
     border-right: 0.5px solid #D9D9D9;
@@ -101,5 +105,252 @@
 }
 
 .cs-main > div {
-    padding: 27px 34px;
+    min-height: 100vh;
+    padding: 27px 34px 45px 34px;
+}
+
+/* Header Menu */
+.cs-header-menu {
+    margin-bottom: 38px;
+}
+
+.cs-header-title .icon {
+    margin-right: 14px;
+    margin-top: -6px;
+}
+
+.cs-header-title .label {
+    color: #000000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+/* Header Nav */
+.cs-nav-header ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.cs-nav-header ul li {
+    display: inline-block;
+    margin-right: 22px;
+}
+
+.cs-nav-header ul li:first-child {
+    margin-right: 53px;
+}
+
+.cs-nav-header ul li:nth-child(2) {
+    margin-right: 35px;
+}
+
+.cs-nav-header ul li:last-child {
+    margin-right: 0;
+}
+
+.cs-nav-header ul li .avatar {
+    margin-right: 16px;
+}
+
+.cs-nav-header ul li .icon {
+    margin-right: 8px;
+}
+
+.cs-nav-header ul li .label {
+    color: #808080;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+/* Toogle Switch */
+.cs-switch {
+    position: relative;
+    display: inline-block;
+    width: 54.38px;
+    height: 30px;
+}
+
+.cs-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cs-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.cs-slider:before {
+    position: absolute;
+    content: "";
+    height: 21.56px;
+    width: 21.56px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .cs-slider {
+    background-color: #7BB43F;
+}
+
+input:focus + .cs-slider {
+    box-shadow: 0 0 1px #7BB43F;
+}
+
+input:checked + .cs-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.cs-slider.cs-round {
+    border-radius: 30px;
+}
+
+.cs-slider.cs-round:before {
+    border-radius: 50%;
+}
+
+/* Badge */
+.cs-badge {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 12px;
+    display: inline-block;
+    width: 87px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.cs-badge.secondary {
+    background: rgba(208, 208, 208, 0.43);
+    color: #767676;
+}
+
+.cs-badge.success {
+    background: rgba(212, 231, 200, 0.43);
+    color: #7BB43F;
+}
+
+/* Tables */
+.cs-tables {
+    margin-top: 10px !important;
+    border-bottom-color: #A8A8A8 !important;
+}
+
+.cs-tables thead tr th {
+    padding: 17px !important;
+    background: #F4F8F9;
+    color: #333;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    text-transform: uppercase;
+    border-bottom: 0 solid transparent !important;
+}
+
+.cs-tables thead tr th:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.cs-tables thead tr th:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.cs-tables tbody tr td {
+    padding: 13px !important;
+    box-shadow: none !important;
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+/* Hide export */
+.dataTables_wrapper .dt-buttons {
+    position: absolute;
+    z-index: -2;
+}
+
+/* Length */
+.dataTables_length label {
+    color: #1B1B1B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.dataTables_length label select {
+    padding: 11.8px 12px 11.8px 17px !important;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+    background: #FFF;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 80px;
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+/* Hide search */
+.dataTables_filter {
+    position: absolute;
+    z-index: -2;
+}
+
+.dataTables_info,
+.dataTables_paginate {
+    margin-top: 8px;
+}
+
+#checkAllRows {
+    font-size: 16px;
+    margin-left: -21px
+}
+
+/* Button Icons */
+.cs-btn-icon {
+    padding: 3px;
+    border-radius: 5px;
+    width: 27px !important;
+    height: 27px !important;
+    display: inline-block;
+    text-align: center;
+}
+
+.cs-btn-icon.primary {
+    background: #2476F2;
+}
+
+.cs-btn-icon.warning {
+    background: #FF7D34;
+}
+
+.cs-btn-icon.danger {
+    background: #E31931;
 }

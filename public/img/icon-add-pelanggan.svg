@@ -1,0 +1,17 @@
+<svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="17" fill="#F5F5F5"/>
+<g id="Pelanggan - Daftar Pelanggan">
+<rect width="1440" height="1298" transform="translate(-1177 -130)" fill="url(#paint0_linear_0_1)"/>
+<path id="Rectangle 450" d="M-831 -8.00001C-831 -19.0457 -822.046 -28 -811 -28H203C214.046 -28 223 -19.0457 223 -8V1103C223 1114.05 214.046 1123 203 1123H-811C-822.046 1123 -831 1114.05 -831 1103V-8.00001Z" fill="white"/>
+<rect id="Rectangle 560" x="-20" y="-12" width="210" height="42" rx="21" fill="#0F0F0F"/>
+<path id="Vector" d="M3 4.26584C3 6.69738 4.806 8.53169 7.2 8.53169C9.594 8.53169 11.4 6.69738 11.4 4.26584C11.4 1.83431 9.594 0 7.2 0C4.806 0 3 1.83431 3 4.26584ZM20.4 3.59306H18V7.2495H14.4V9.68712H18V13.3436H20.4V9.68712H24V7.2495H20.4V3.59306ZM2.4 17H14.4V15.7812C14.4 12.4209 11.7084 9.68712 8.4 9.68712H6C2.6916 9.68712 0 12.4209 0 15.7812V17H2.4Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="720" y1="0" x2="720" y2="1298" gradientUnits="userSpaceOnUse">
+<stop offset="0.0520833" stop-color="#F8F8F8"/>
+<stop offset="0.552083" stop-color="#EDEFEB"/>
+<stop offset="0.8125" stop-color="#EEF3E9"/>
+<stop offset="1" stop-color="#DBE4D1"/>
+</linearGradient>
+</defs>
+</svg>
