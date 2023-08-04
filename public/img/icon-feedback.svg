@@ -1,0 +1,29 @@
+<svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="30" height="24" fill="#F5F5F5"/>
+<g id="Pelanggan - Daftar Pelanggan">
+<rect width="1440" height="1298" transform="translate(-35 -577)" fill="url(#paint0_linear_0_1)"/>
+<g id="Rectangle 261">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-35 -577H277V721H-35V-577Z"/>
+</mask>
+<path d="M-35 -577H277V721H-35V-577Z" fill="white"/>
+<path d="M276.5 -577V721H277.5V-577H276.5Z" fill="#D9D9D9" mask="url(#path-1-inside-1_0_1)"/>
+</g>
+<path id="Rectangle 584" d="M-35 -14H277V37H-35V-14Z" fill="white"/>
+<g id="Group 515">
+<g id="Group">
+<path id="Vector" d="M9.0646 15.15C11.902 15.15 14.2022 12.8498 14.2022 10.0123C14.2022 7.17489 11.902 4.87469 9.0646 4.87469C6.22717 4.87469 3.92697 7.17489 3.92697 10.0123C3.92697 12.8498 6.22717 15.15 9.0646 15.15Z" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M1.64453 21.9997C1.64453 19.7163 3.35707 15.1495 9.06555 15.1495C14.774 15.1495 16.4866 19.7163 16.4866 21.9997" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector_3" d="M26.5723 0.210938C27.2874 0.210938 27.9732 0.507435 28.4789 1.03521C28.9845 1.56297 29.2686 2.27878 29.2686 3.02516V7.40285C29.2686 7.77242 29.1989 8.13837 29.0634 8.4798C28.9279 8.82124 28.7293 9.13148 28.4789 9.39281C28.2285 9.65413 27.9313 9.86142 27.6041 10.0029C27.277 10.1443 26.9264 10.2171 26.5723 10.2171H24.7112L21.6661 12.9775C21.4925 13.1349 21.2793 13.2369 21.0517 13.2713C20.8242 13.3057 20.592 13.2711 20.3828 13.1716C20.1736 13.072 19.9962 12.9118 19.8719 12.7099C19.7476 12.5081 19.6815 12.2731 19.6815 12.0332V10.1996C19.0224 10.1226 18.4136 9.79489 17.9714 9.27894C17.5292 8.763 17.2848 8.09507 17.2848 7.40285V3.02516C17.2848 2.27878 17.5688 1.56297 18.0745 1.03521C18.5802 0.507435 19.266 0.210938 19.9811 0.210938H26.5723Z" fill="#C8D4D0"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="720" y1="0" x2="720" y2="1298" gradientUnits="userSpaceOnUse">
+<stop offset="0.0520833" stop-color="#F8F8F8"/>
+<stop offset="0.552083" stop-color="#EDEFEB"/>
+<stop offset="0.8125" stop-color="#EEF3E9"/>
+<stop offset="1" stop-color="#DBE4D1"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="25" height="25" fill="#F5F5F5"/>
+<g id="Pelanggan - Daftar Pelanggan">
+<rect width="1440" height="1298" transform="translate(-36 -341)" fill="url(#paint0_linear_0_1)"/>
+<g id="Rectangle 261">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-36 -341H276V957H-36V-341Z"/>
+</mask>
+<path d="M-36 -341H276V957H-36V-341Z" fill="white"/>
+<path d="M275.5 -341V957H276.5V-341H275.5Z" fill="#D9D9D9" mask="url(#path-1-inside-1_0_1)"/>
+</g>
+<rect id="Rectangle 539" x="-36" y="-13" width="312" height="51" fill="white"/>
+<g id="Group">
+<path id="Vector" d="M21.4358 2.13574H3.66746C3.19621 2.13574 2.74427 2.32294 2.41105 2.65617C2.07783 2.98939 1.89062 3.44133 1.89062 3.91258V21.6809C1.89062 22.1522 2.07783 22.6041 2.41105 22.9374C2.74427 23.2706 3.19621 23.4578 3.66746 23.4578H21.4358C21.9071 23.4578 22.359 23.2706 22.6922 22.9374C23.0255 22.6041 23.2127 22.1522 23.2127 21.6809V3.91258C23.2127 3.44133 23.0255 2.98939 22.6922 2.65617C22.359 2.32294 21.9071 2.13574 21.4358 2.13574Z" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M10.7748 16.9427L13.7362 19.3118L18.4744 13.389M6.62883 7.46625H18.4744M6.62883 12.2045H11.3671" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="720" y1="0" x2="720" y2="1298" gradientUnits="userSpaceOnUse">
+<stop offset="0.0520833" stop-color="#F8F8F8"/>
+<stop offset="0.552083" stop-color="#EDEFEB"/>
+<stop offset="0.8125" stop-color="#EEF3E9"/>
+<stop offset="1" stop-color="#DBE4D1"/>
+</linearGradient>
+</defs>
+</svg>

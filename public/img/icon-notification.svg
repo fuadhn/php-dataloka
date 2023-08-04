@@ -1,0 +1,23 @@
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="23" height="23" fill="#F5F5F5"/>
+<g id="Pelanggan - Daftar Pelanggan">
+<rect width="1440" height="1298" transform="translate(-35 -627)" fill="url(#paint0_linear_0_1)"/>
+<g id="Rectangle 261">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-35 -627H277V671H-35V-627Z"/>
+</mask>
+<path d="M-35 -627H277V671H-35V-627Z" fill="white"/>
+<path d="M276.5 -627V671H277.5V-627H276.5Z" fill="#D9D9D9" mask="url(#path-1-inside-1_0_1)"/>
+</g>
+<rect id="Rectangle 772" x="-35" y="-13" width="312" height="51" fill="white"/>
+<path id="Vector" d="M22.0772 0C21.968 0 21.8559 0.0201226 21.7438 0.0661168L5.17435 6.72378H0.459943C0.206974 6.72378 0 6.93651 0 7.20097V15.7962C0 16.0606 0.206974 16.2733 0.459943 16.2733H3.38345C3.27709 16.6068 3.2196 16.9604 3.2196 17.3197C3.2196 19.2141 4.76615 20.7549 6.66917 20.7549C8.26172 20.7549 9.60417 19.674 10.0009 18.2137L21.7467 22.9339C21.8588 22.977 21.9709 23 22.0801 23C22.5659 23 23 22.5918 23 22.0456V0.954381C22.9971 0.408199 22.5659 0 22.0772 0ZM6.5 18.5C6 18.5 5.41222 18.0786 5.41222 17.3197C5.41222 16.9977 5.40145 16.6902 5.60555 16.4458L7.77489 17.3197C7.77489 17.8038 7.22441 18.5 6.5 18.5ZM19.9274 19.3726L5.94476 13.3531L5.57393 13.2036H3.06974V9.79353H5.57393L5.94476 9.64404L19.9274 3.62455V19.3726Z" fill="#C8D4D0"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="720" y1="0" x2="720" y2="1298" gradientUnits="userSpaceOnUse">
+<stop offset="0.0520833" stop-color="#F8F8F8"/>
+<stop offset="0.552083" stop-color="#EDEFEB"/>
+<stop offset="0.8125" stop-color="#EEF3E9"/>
+<stop offset="1" stop-color="#DBE4D1"/>
+</linearGradient>
+</defs>
+</svg>

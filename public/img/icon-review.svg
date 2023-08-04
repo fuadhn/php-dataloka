@@ -1,0 +1,28 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="25" height="25" fill="#F5F5F5"/>
+<g id="Pelanggan - Daftar Pelanggan">
+<rect width="1440" height="1298" transform="translate(-37 -727)" fill="url(#paint0_linear_0_1)"/>
+<g id="Rectangle 261">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-37 -727H275V571H-37V-727Z"/>
+</mask>
+<path d="M-37 -727H275V571H-37V-727Z" fill="white"/>
+<path d="M274.5 -727V571H275.5V-727H274.5Z" fill="#D9D9D9" mask="url(#path-1-inside-1_0_1)"/>
+</g>
+<rect id="Rectangle 773" x="-37" y="-11" width="312" height="51" fill="white"/>
+<g id="Group">
+<path id="Vector" d="M4.14648 23.0296H18.3612C19.6178 23.0296 20.823 22.5303 21.7116 21.6418C22.6002 20.7532 23.0994 19.548 23.0994 18.2913V4.07663C23.0994 3.44831 22.8498 2.84571 22.4055 2.40142C21.9612 1.95712 21.3586 1.70752 20.7303 1.70752H8.88471C8.25639 1.70752 7.65379 1.95712 7.2095 2.40142C6.7652 2.84571 6.5156 3.44831 6.5156 4.07663V19.4759C6.5156 21.4387 6.1093 23.0296 4.14648 23.0296Z" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M1.77734 9.99942C1.77734 9.3711 2.02695 8.7685 2.47124 8.32421C2.91554 7.87991 3.51813 7.63031 4.14646 7.63031H6.51557V20.0682C6.51557 21.7029 5.78115 23.0296 4.14646 23.0296C2.51177 23.0296 1.77734 21.7029 1.77734 20.0682V9.99942Z" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M12.4384 8.81485C13.0926 8.81485 13.6229 8.28451 13.6229 7.6303C13.6229 6.97608 13.0926 6.44574 12.4384 6.44574C11.7842 6.44574 11.2538 6.97608 11.2538 7.6303C11.2538 8.28451 11.7842 8.81485 12.4384 8.81485Z" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round"/>
+<path id="Vector_4" d="M11.2538 14.7377H18.3612M11.2538 18.2913H14.8075" stroke="#C8D4D0" stroke-width="3" stroke-linecap="round"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="720" y1="0" x2="720" y2="1298" gradientUnits="userSpaceOnUse">
+<stop offset="0.0520833" stop-color="#F8F8F8"/>
+<stop offset="0.552083" stop-color="#EDEFEB"/>
+<stop offset="0.8125" stop-color="#EEF3E9"/>
+<stop offset="1" stop-color="#DBE4D1"/>
+</linearGradient>
+</defs>
+</svg>

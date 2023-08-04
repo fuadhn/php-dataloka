@@ -1,0 +1,105 @@
+/* Navigation */
+.cs-navigation {
+    border-right: 0.5px solid #D9D9D9;
+    width: 312px;
+}
+
+.cs-navigation > div {
+    padding: 14px 15px;
+}
+
+/* Logo */
+.cs-logo {
+    width: 226px;
+    margin-left: calc(((312px - 30px) - 226px) / 2);
+    margin-right: calc(((312px - 30px) - 226px) / 2);
+    margin-top: -12px;
+    margin-bottom: 14px;
+}
+
+/* Menus */
+.cs-menus {
+    height: calc(100vh - 133px - 28px);
+    /* padding-left: 7px;
+    padding-right: 7px; */
+}
+
+.cs-nav-menu ul {
+    padding-left: 0;
+}
+
+.cs-nav-menu ul li {
+    border-bottom: 0.5px solid #dddddd;
+}
+
+.cs-nav-menu ul li a {
+    display: block;
+    color: #18120F;
+    text-decoration: none;
+}
+
+/* .cs-nav-menu ul li a:hover {
+    color: #7BB43F;
+} */
+
+.cs-nav-menu ul li a .icon {
+    margin: 15px 15px 17px 18px;
+    max-width: 17px;
+}
+
+.cs-nav-menu ul li a .label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    top: 2px;
+}
+
+.cs-nav-menu ul li a .arrow {
+    float: right;
+    margin-right: 18px;
+    margin-top: 19px;
+}
+
+/* Sub Menu */
+.cs-nav-menu ul li ul {
+    height: 0;
+    overflow: hidden;
+}
+
+.cs-nav-menu ul li ul li {
+    border-bottom: 0 solid transparent;
+    padding-top: 12px;
+    padding-bottom: 14px;
+}
+
+.cs-nav-menu ul li ul li a {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.cs-nav-menu ul li ul li:hover {
+    background: #F2F5EF;
+}
+
+.cs-nav-menu ul li ul li a .label {
+    margin-left: 54px;
+}
+
+/* .cs-nav-menu ul li a:hover .icon,
+.cs-nav-menu ul li a:hover .arrow {
+    filter: invert(59%) sepia(58%) saturate(435%) hue-rotate(47deg) brightness(96%) contrast(91%);
+} */
+
+/* Main */
+.cs-main {
+    background: var(--bg, linear-gradient(180deg, #F8F8F8 5.21%, #EDEFEB 55.21%, #EEF3E9 81.25%, #DBE4D1 100%));
+    left: 312px;
+    width: calc(100% - 312px);
+}
+
+.cs-main > div {
+    padding: 27px 34px;
+}
