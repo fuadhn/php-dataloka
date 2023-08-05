@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('t_berlangganan_produk', function (Blueprint $table) {
             $table->bigIncrements('ID_BERLANGGANAN');
             $table->unsignedBigInteger('ID_PELANGGAN');
-            $table->unsignedBigInteger('BER_ID_BERLANGGANAN');
+            $table->unsignedBigInteger('BER_ID_BERLANGGANAN')->nullable();
             $table->unsignedBigInteger('ID_PAKET_PRODUK');
             $table->date('TANGGAL_MULAI');
             $table->date('TANGGAL_AKHIR');
             $table->integer('BIAYA');
-            $table->string('STATUS', 50);
+            $table->enum('STATUS', ['Aktif', 'Tidak Aktif', 'Ditolak']);
             $table->integer('KUOTA_SURAT_RISET');
             $table->integer('SISA_KUOTA_SURAT_RISET');
             $table->integer('KUOTA_DOWNLOAD');
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->dateTime('UPDATED_AT');
 
             $table->foreign('ID_PELANGGAN')->references('ID_PELANGGAN')->on('m_pelanggan')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('BER_ID_BERLANGGANAN')->references('ID_BERLANGGANAN')->on('t_berlangganan_produk')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('BER_ID_BERLANGGANAN')->references('ID_BERLANGGANAN')->on('t_berlangganan_produk')->onDelete(null)->onUpdate('cascade');
             $table->foreign('ID_PAKET_PRODUK')->references('ID_PAKET_PRODUK')->on('m_paket_produk')->onDelete('cascade')->onUpdate('cascade');
         });
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('NAMA_PELANGGAN', 100);
             $table->string('TEMPAT_LAHIR', 100);
             $table->date('TANGGAL_LAHIR');
-            $table->char('GENDER', 1);
+            $table->enum('GENDER', ['L', 'P']);
             $table->string('ALAMAT_KTP', 500);
             $table->string('ALAMAT_DOMISILI', 500);
             $table->string('KOTA_DOMISILI', 50);
