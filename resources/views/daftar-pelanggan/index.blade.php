@@ -27,98 +27,124 @@
             </div>
         </div>
 
-        <div class="d-inline-flex align-middle cs-wrap-filter">
-            <div class="cs-filter-date">
-                <input type="text" name="daterange" value="2022-07-07 ~ 2022-07-07" />
-                <img class="icon" src="{{ URL::asset('img/icon-filter-date.svg') }}" alt="" />
-            </div>
+        <form action="" method="POST">
+            @csrf
+            <input type="hidden" name="tanggal_mulai" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d') }}" />
+            <input type="hidden" name="tanggal_akhir" value="{{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d') }}" />
+            <div class="d-inline-flex align-middle cs-wrap-filter">
+                <div class="cs-filter-date">
+                    <input type="text" name="daterange" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d') }} - {{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d') }}" />
+                    <img class="icon" src="{{ URL::asset('img/icon-filter-date.svg') }}" alt="" />
+                </div>
 
-            <div class="input-group cs-filter-product">
-                <span class="input-group-text" id="filter-product">Produk :</span>
-                <select class="form-select" aria-label="filter-product">
-                    <option selected>All</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
+                <div class="input-group cs-filter-product">
+                    <span class="input-group-text" id="filter-product">Produk :</span>
+                    <select name="id_paket_produk" class="form-select" aria-label="filter-product" autocomplete="off">
+                        <option value="" selected="selected">All</option>
+                        @if ($paket_produk)
+                        @foreach ($paket_produk as $row)
+                        <option value="{{ $row->ID_PAKET_PRODUK }}" {{ $row->ID_PAKET_PRODUK == $id_paket_produk ? 'selected="selected"' : '' }}>{{ $row->NAMA_PRODUK }}</option>
+                        @endforeach
+                        @endif
+                    </select>
+                </div>
 
-            <div class="cs-filter-button">
-                <button type="button" class="btn bg-success text-white text-uppercase">
-                    <span>Filter</span>
-                </button>
+                <div class="cs-filter-button">
+                    <button type="submit" class="btn bg-success text-white text-uppercase">
+                        <span>Filter</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="d-inline-block w-100 align-middle" style="margin-bottom: -64px; z-index: 10; position: relative;">
+            <div class="input-group cs-search-table float-start">
+                <input type="text" class="form-control" placeholder="No Invoice / Nama Pelanggan" aria-label="No Invoice / Nama Pelanggan" aria-describedby="basic-addon2" autocomplete="off">
+                <span class="input-group-text" id="basic-addon2">
+                    <img class="icon" src="{{ URL::asset('img/icon-search-white.svg') }}" alt="" />
+                    <span class="label">CARI</span>
+                </span>
+            </div>
+            
+            <div class="cs-additional-button float-end">
+                <div class="dropdown d-inline-flex cs-dropdown-filter">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="icon" src="{{ URL::asset('img/icon-dropdown-filter.svg') }}" alt="" />
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Status Berlangganan</a></li>
+                        <li><input type="radio" name="filter_status_berlangganan" value="" style="margin-left: 14px;" checked="checked" autocomplete="off" />&nbsp;Semua</li>
+                        <li><input type="radio" name="filter_status_berlangganan" value="sb:aktif" style="margin-left: 14px;" autocomplete="off" />&nbsp;Aktif</li>
+                        <li><input type="radio" name="filter_status_berlangganan" value="sb:tidak aktif" style="margin-left: 14px;" autocomplete="off" />&nbsp;Tidak Aktif</li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Status Akun</a></li>
+                        <li><input type="radio" name="filter_status_akun" value="" style="margin-left: 14px;" checked="checked" autocomplete="off" />&nbsp;Semua</li>
+                        <li><input type="radio" name="filter_status_akun" value="st:aktif" style="margin-left: 14px;" autocomplete="off" />&nbsp;Aktif</li>
+                        <li><input type="radio" name="filter_status_akun" value="st:suspend" style="margin-left: 14px;" autocomplete="off" />&nbsp;Tidak Aktif</li>
+                    </ul>
+                </div>
+
+                <div class="dropdown d-inline-flex cs-dropdown-export">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="icon" src="{{ URL::asset('img/icon-dropdown-export.svg') }}" alt="" />
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item cs-buttons-excel" href="#">Excel</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <table id="daftarPelanggan" class="display cs-tables">
             <thead>
                 <tr>
-                    <th style="width: 80px;">
+                    <th>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="checkAllRows">
+                            <input class="form-check-input" type="checkbox" value="" id="checkAllRows" autocomplete="off">
                         </div>  
                     </th>
-                    <th>Tanggal Bergabung</th>
-                    <th>Pelanggan</th>
-                    <th>Tipe Pelanggan</th>
-                    <th>Status Berlangganan</th>
-                    <th>Status Akun</th>
+                    <th class="exportable">Invoice</th>
+                    <th>Status</th>
+                    <th>Status</th>
+                    <th class="exportable">Tanggal Bergabung</th>
+                    <th class="exportable">Pelanggan</th>
+                    <th class="exportable">Tipe Pelanggan</th>
+                    <th class="exportable">Status Berlangganan</th>
+                    <th class="exportable">Status Akun</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
+                @if ($pelanggan)
+                @foreach ($pelanggan as $row)
+                @if (!is_null($row->berlangganan_produk))
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="checkItem1">
+                            <input class="form-check-input cs-check-item" type="checkbox" value="{{ $row->ID_PELANGGAN }}" id="checkItem1" autocomplete="off">
                         </div>
                     </td>
-                    <td>08-08-2022</td>
+                    <td>{{ get_invoice($row->berlangganan_produk->ID_BERLANGGANAN) }}</td>
+                    <td>st:{{ $row->STATUS_AKUN }}</td>
+                    <td>sb:{{ time() >= strtotime($row->berlangganan_produk->TANGGAL_MULAI) && time() <= strtotime($row->berlangganan_produk->TANGGAL_AKHIR) ? 'aktif' : 'tidak aktif' }}</td>
+                    <td>{{ date('d-m-Y', strtotime($row->berlangganan_produk->TANGGAL_MULAI)) }}</td>
                     <td>
-                        <strong>Nico</strong>
-                        <p>089878636343</p>
+                        <strong>{{ $row->NAMA_PELANGGAN }}</strong>
+                        <p>{{ $row->NO_HP }}</p>
                     </td>
-                    <td>Retail</td>
+                    <td>{{ ($row->STATUS_PELANGGAN == 'b2b' ? 'Institusi' : 'Retail') }}</td>
                     <td>
-                        <span class="cs-badge secondary">Tidak Aktif</span>
-                    </td>
-                    <td>
-                        <label class="cs-switch">
-                            <input type="checkbox">
-                            <span class="cs-slider cs-round"></span>
-                        </label>
-                    </td>
-                    <td>
-                        <a href="#" class="cs-btn-icon primary">
-                            <img src="{{ URL::asset('img/icon-btn-send.svg') }}" alt="" />
-                        </a>
-                        <a href="#" class="cs-btn-icon warning">
-                            <img src="{{ URL::asset('img/icon-btn-pencil.svg') }}" alt="" />
-                        </a>
-                        <a href="#" class="cs-btn-icon danger">
-                            <img src="{{ URL::asset('img/icon-btn-trash.svg') }}" alt="" />
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="checkItem1">
-                        </div>
-                    </td>
-                    <td>08-08-2022</td>
-                    <td>
-                        <strong>Nico</strong>
-                        <p>089878636343</p>
-                    </td>
-                    <td>Retail</td>
-                    <td>
+                        @if(time() >= strtotime($row->berlangganan_produk->TANGGAL_MULAI) && time() <= strtotime($row->berlangganan_produk->TANGGAL_AKHIR))
                         <span class="cs-badge success">Aktif</span>
+                        @else
+                        <span class="cs-badge secondary">Tidak Aktif</span>
+                        @endif
                     </td>
                     <td>
                         <label class="cs-switch">
-                            <input type="checkbox">
+                            <input type="checkbox" {{ ($row->STATUS_AKUN == 'aktif' ? 'checked="checked"' : '') }}>
                             <span class="cs-slider cs-round"></span>
+                            <span style="opacity: 0;">{{ $row->STATUS_AKUN }}</span>
                         </label>
                     </td>
                     <td>
@@ -133,8 +159,40 @@
                         </a>
                     </td>
                 </tr>
+                @endif
+                @endforeach
+                @endif
             </tbody>
         </table>
+    </div>
+</div>
+@endsection
+
+@section('footer')
+<div class="cs-footer-actions">
+    <div>
+        <form action="{{ route('daftar_pelanggan.bulk') }}" method="POST">
+            @csrf
+            <input type="hidden" name="ids_pelanggan" value="" autocomplete="off">
+            <div class="d-inline-flex align-middle w-100 cs-footer-form">
+                <div class="cs-label">
+                    <span>Apply to selected</span>
+                </div>
+
+                <select name="aksi" class="form-select" aria-label="Bulk Actions" style="max-width: 150px; margin-right: 21px;" autocomplete="off" required="required">
+                    <option value="" selected>Status akun</option>
+                    <option value="aktif">Aktifkan</option>
+                    <option value="suspend">Nonaktifkan</option>
+                    <option value="delete">Hapus</option>
+                </select>
+
+                <div class="cs-filter-button">
+                    <button type="submit" class="btn bg-success text-white text-uppercase">
+                        <span>Apply</span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 @endsection
@@ -145,10 +203,13 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $(function() {
+        var _tanggal_mulai = $('input[name="tanggal_mulai"]').val();
+        var _tanggal_akhir = $('input[name="tanggal_akhir"]').val();
+
         $('input[name="daterange"]').daterangepicker({
             opens: 'left',
-            startDate: moment(),
-            endDate: moment(),
+            startDate: _tanggal_mulai,
+            endDate: _tanggal_akhir,
             locale: {
                 format: 'YYYY-MM-DD'
             }
@@ -167,11 +228,31 @@
 <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
 <script>
     $(document).ready( function () {
-        $('#daftarPelanggan').DataTable({
+        var _table = $('#daftarPelanggan').DataTable({
+            columnDefs: [
+                {
+                    target: 1,
+                    visible: false
+                },
+                {
+                    target: 2,
+                    visible: false
+                },
+                {
+                    target: 3,
+                    visible: false
+                }
+            ],
             dom: 'lBfrtip',
             lengthMenu: [ 2, 5, 10, 25, 50, 75, 100 ],
+            iDisplayLength: 10,
             buttons: [
-                'excel'
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: 'th.exportable'
+                    }
+                }
             ]
         });
 
@@ -179,6 +260,50 @@
             e.preventDefault();
 
             $(this).prevAll('input[name="daterange"]').click();
+        })
+
+        $('.cs-search-table input').keyup(function() {
+            _table.search( $(this).val() ).draw();
+        })
+
+        $('input[name="filter_status_berlangganan"]').on('change', (function() {
+            _table.columns(3).search($('input[name="filter_status_berlangganan"]:checked').val()).draw();
+        }))
+
+        $('input[name="filter_status_akun"]').on('change', (function() {
+            _table.columns(2).search($('input[name="filter_status_akun"]:checked').val()).draw();
+        }))
+
+        $('.cs-buttons-excel').click(function(e) {
+            e.preventDefault();
+
+            $('.buttons-excel').click();
+        })
+
+        var update_ids_pelanggan = function() {
+            var _ids = [];
+
+            $('.cs-check-item:checked').each(function() {
+                _ids.push($(this).val());
+            })
+
+            var _str_ids = _ids.join(':');
+            
+            $('input[name="ids_pelanggan"]').val(_str_ids);
+        }
+
+        $('.cs-check-item').on('change', (function() {
+            update_ids_pelanggan();
+        }))
+
+        $('#checkAllRows').click(function() {
+            if($(this).prop('checked')) {
+                $('.cs-check-item').prop('checked', true);
+            } else {
+                $('.cs-check-item').prop('checked', false);
+            }
+
+            update_ids_pelanggan();
         })
     } );
 </script>

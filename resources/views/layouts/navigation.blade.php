@@ -48,16 +48,16 @@
                             <img class="h-auto arrow" src="{{ URL::asset('img/arrow-down.svg') }}" alt="Toggle">
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->routeIs('daftar_pelanggan.list') ? 'active' : '' }}">
                         <a href="#">
                             <img class="h-auto icon" src="{{ URL::asset('img/icon-customer.svg') }}" alt="Pelanggan">
                             <span class="label">Pelanggan</span>
                             <img class="h-auto arrow" src="{{ URL::asset('img/arrow-down.svg') }}" alt="Toggle">
                         </a>
 
-                        <ul>
-                            <li>
-                                <a href="#">
+                        <ul style="height: {{ request()->routeIs('daftar_pelanggan.list') ? '100%' : '0' }};">
+                            <li class="{{ request()->routeIs('daftar_pelanggan.list') ? 'active' : '' }}">
+                                <a href="{{ route('daftar_pelanggan.list') }}">
                                     <span class="label">Daftar Pelanggan</span>
                                 </a>
                             </li>

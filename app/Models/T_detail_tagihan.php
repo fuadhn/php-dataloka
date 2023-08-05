@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class T_detail_tagihan extends Model
 {
@@ -22,4 +23,8 @@ class T_detail_tagihan extends Model
      * @var string
      */
     protected $primaryKey = 'ID_DETAIL_TAGIHAN';
+
+    public function tagihan_produk(): BelongsTo {
+        return $this->belongsTo(T_tagihan_produk::class, 'ID_TAGIHAN');
+    }
 }

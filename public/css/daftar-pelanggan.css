@@ -45,7 +45,7 @@
     background: #ECF4E7;
     border-radius: 5px;
     padding: 15px 27px 16px 27px;
-    margin-bottom: 14px;
+    /* margin-bottom: 14px; */
     width: 100%;
 }
 
@@ -104,4 +104,96 @@
     font-weight: 700;
     line-height: normal;
     width: 94px;
+}
+
+/* Search table */
+.cs-search-table {
+    height: 42px;
+    max-width: 374px;
+    margin-left: 16px;
+    /* position: absolute; */
+    margin-left: 216px;
+    /* z-index: 10; */
+}
+
+.cs-search-table input {
+    border-radius: 50px !important;
+    border: 1px solid #C0C0C0;
+    background: #FFF;
+    padding-left: 22px;
+    padding-right: 100px;
+}
+
+.cs-search-table .input-group-text {
+    border-radius: 50px !important;
+    background: #7BB43F;
+    padding-left: 12px;
+    padding-right: 12px;
+    right: 0;
+    position: absolute;
+    height: 42px;
+    z-index: 6;
+}
+
+.cs-search-table .input-group-text .icon {
+    margin-right: 6px;
+}
+
+.cs-search-table .input-group-text .label {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+/* Additional buttons */
+.cs-additional-button {
+    /* position: absolute; */
+    /* z-index: 10; */
+}
+
+.cs-dropdown-filter button {
+    background: #ffffff !important;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF !important;
+}
+
+.cs-dropdown-filter .dropdown-toggle:after {
+    display: none;
+}
+
+.cs-dropdown-export button {
+    background: #D4E7C8 !important;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF !important;
+}
+
+.cs-dropdown-export .dropdown-toggle:after {
+    color: #4A4A4A !important;
+}
+
+/* Footer */
+.cs-footer-actions {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 312px);
+    background: #ffffff;
+}
+
+.cs-footer-actions > div {
+    padding: 19px 97px 15px 97px;
+}
+
+.cs-footer-form .cs-label span {
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    margin-right: 12px;
+    top: 10px;
+    position: relative;
 }

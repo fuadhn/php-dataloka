@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar-pelanggan', [DaftarPelangganController::class, 'index']);
+Route::get('/daftar-pelanggan', [DaftarPelangganController::class, 'index'])->name('daftar_pelanggan.list');
+Route::post('/daftar-pelanggan', [DaftarPelangganController::class, 'index'])->name('daftar_pelanggan.list');
+Route::post('/bulk-update-status', [DaftarPelangganController::class, 'bulk_update_status'])->name('daftar_pelanggan.bulk');

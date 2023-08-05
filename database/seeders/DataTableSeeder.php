@@ -36,7 +36,7 @@ class DataTableSeeder extends Seeder
                 'GRANULARITY_ID' => 1,
                 'ID_DELIVERY' => 1,
                 'ID_JENIS_PAKET_PRODUK' => 1,
-                'NAMA_PRODUK' => $faker->company,
+                'NAMA_PRODUK' => $faker->tld,
                 'DESKRIPSI_PRODUK' => $faker->paragraph,
                 'JURNAL_PRODUK_ID' => 1,
                 'GAMBAR' => $faker->imageUrl,

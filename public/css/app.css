@@ -42,6 +42,14 @@ html, body {
     text-decoration: none;
 }
 
+/* .cs-nav-menu ul li a.active {
+    color: #7BB43F;
+} */
+
+/* .cs-nav-menu ul li a.active .icon {
+    color: #7BB43F;
+} */
+
 /* .cs-nav-menu ul li a:hover {
     color: #7BB43F;
 } */
@@ -75,6 +83,7 @@ html, body {
     border-bottom: 0 solid transparent;
     padding-top: 12px;
     padding-bottom: 14px;
+    border-right: 3px solid transparent;
 }
 
 .cs-nav-menu ul li ul li a {
@@ -84,12 +93,21 @@ html, body {
     line-height: normal; 
 }
 
+.cs-nav-menu ul li ul li.active {
+    background: #F2F5EF;
+    border-color: #7BB43F;
+}
+
 .cs-nav-menu ul li ul li:hover {
     background: #F2F5EF;
 }
 
 .cs-nav-menu ul li ul li a .label {
     margin-left: 54px;
+}
+
+.cs-nav-menu ul li ul li.active a .label {
+    color: #7BB43F;
 }
 
 /* .cs-nav-menu ul li a:hover .icon,
@@ -104,9 +122,9 @@ html, body {
     width: calc(100% - 312px);
 }
 
-.cs-main > div {
+.cs-main > div:nth-child(1) {
     min-height: 100vh;
-    padding: 27px 34px 45px 34px;
+    padding: 27px 34px 103px 34px;
 }
 
 /* Header Menu */
@@ -294,6 +312,11 @@ input:checked + .cs-slider:before {
 }
 
 /* Length */
+.dataTables_length {
+    z-index: 11;
+    position: relative;
+}
+
 .dataTables_length label {
     color: #1B1B1B;
     font-size: 16px;
@@ -331,6 +354,15 @@ input:checked + .cs-slider:before {
 #checkAllRows {
     font-size: 16px;
     margin-left: -21px
+}
+
+/* Datatables info */
+.dataTables_info {
+    color: #B3B3B3 !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
 }
 
 /* Button Icons */
