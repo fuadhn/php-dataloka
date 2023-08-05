@@ -118,7 +118,7 @@
                 @if ($pelanggan)
                 @foreach ($pelanggan as $row)
                 @if (!is_null($row->berlangganan_produk))
-                <tr>
+                <tr id="rowId{{ $row->ID_PELANGGAN }}">
                     <td>
                         <div class="form-check">
                             <input class="form-check-input cs-check-item" type="checkbox" value="{{ $row->ID_PELANGGAN }}" id="checkItem1" autocomplete="off">
@@ -142,7 +142,7 @@
                     </td>
                     <td>
                         <label class="cs-switch">
-                            <input type="checkbox" {{ ($row->STATUS_AKUN == 'aktif' ? 'checked="checked"' : '') }}>
+                            <input type="checkbox" class="cs-toggle-status" autocomplete="off" data-id="{{ $row->ID_PELANGGAN }}" {{ ($row->STATUS_AKUN == 'aktif' ? 'checked="checked"' : '') }}>
                             <span class="cs-slider cs-round"></span>
                             <span style="opacity: 0;">{{ $row->STATUS_AKUN }}</span>
                         </label>
@@ -154,7 +154,7 @@
                         <a href="#" class="cs-btn-icon warning">
                             <img src="{{ URL::asset('img/icon-btn-pencil.svg') }}" alt="" />
                         </a>
-                        <a href="#" class="cs-btn-icon danger">
+                        <a href="#" class="cs-btn-icon danger cs-delete-pelanggan" data-id="{{ $row->ID_PELANGGAN }}">
                             <img src="{{ URL::asset('img/icon-btn-trash.svg') }}" alt="" />
                         </a>
                     </td>
@@ -305,6 +305,50 @@
 
             update_ids_pelanggan();
         })
+
+        $('.cs-toggle-status').on('change', (function() {
+            var _url = "{{ route('api.update_status_akun') }}";
+            var _id_pelanggan = $(this).data('id');
+            var _status_akun = ($(this).prop('checked') ? 'aktif' : 'suspend');
+
+            $.ajax({
+                method: 'PUT',
+                url: _url,
+                data: 'id_pelanggan=' + _id_pelanggan + '&status_akun=' + _status_akun,
+                dataType: 'json',
+                processData: false,
+                success: function(response) {
+                    // Silent is gold
+                    console.log(response); // this is for debug only
+                }
+            })
+        }))
+
+        $('.cs-delete-pelanggan').on('click', (function(e) {
+            e.preventDefault();
+
+            var _url = "{{ route('api.delete_pelanggan') }}";
+            var _id_pelanggan = $(this).data('id');
+            var _confirm = confirm('Apakah Anda yakin ingin menghapus pelanggan ini?');
+
+            if(_confirm) {
+                $.ajax({
+                    method: 'DELETE',
+                    url: _url,
+                    data: 'id_pelanggan=' + _id_pelanggan,
+                    dataType: 'json',
+                    processData: false,
+                    success: function(response) {
+                        // Silent is gold
+                        console.log(response); // this is for debug only
+
+                        $('#rowId' + _id_pelanggan).remove();
+                    }
+                })
+            } else {
+                // Silent is gold
+            }
+        }))
     } );
 </script>
 @endsection

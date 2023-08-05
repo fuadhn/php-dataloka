@@ -67,4 +67,44 @@ class DaftarPelangganController extends Controller
 
         return redirect('/daftar-pelanggan');
     }
+
+    public function update_status_akun(Request $request) {
+        if(M_pelanggan::where('ID_PELANGGAN', $request->id_pelanggan)->exists()) {
+            $pelanggan = M_pelanggan::find($request->id_pelanggan);
+
+            $pelanggan->STATUS_AKUN = $request->status_akun;
+
+            $pelanggan->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Status akun berhasil diperbarui.'
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'ID pelanggan tidak diketahui.'
+            ], 404);
+        }
+    }
+
+    public function delete_pelanggan(Request $request) {
+        if(M_pelanggan::where('ID_PELANGGAN', $request->id_pelanggan)->exists()) {
+            $pelanggan = M_pelanggan::find($request->id_pelanggan);
+
+            $pelanggan->STATUS_AKUN = 'delete';
+
+            $pelanggan->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Pelanggan berhasil dihapus.'
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'ID pelanggan tidak diketahui.'
+            ], 404);
+        }
+    }
 }
