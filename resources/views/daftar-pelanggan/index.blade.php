@@ -148,7 +148,7 @@
                         </label>
                     </td>
                     <td>
-                        <a href="#" class="cs-btn-icon primary">
+                        <a href="{{ route('inbox.search', $row->ID_PELANGGAN) }}/" class="cs-btn-icon primary">
                             <img src="{{ URL::asset('img/icon-btn-send.svg') }}" alt="" />
                         </a>
                         <a href="#" class="cs-btn-icon warning">

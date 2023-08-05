@@ -42,9 +42,9 @@ html, body {
     text-decoration: none;
 }
 
-/* .cs-nav-menu ul li a.active {
+.cs-nav-menu ul li.active > a {
     color: #7BB43F;
-} */
+}
 
 /* .cs-nav-menu ul li a.active .icon {
     color: #7BB43F;

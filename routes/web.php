@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarPelangganController;
+use App\Http\Controllers\InboxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::get('/', function () {
 Route::get('/daftar-pelanggan', [DaftarPelangganController::class, 'index'])->name('daftar_pelanggan.list');
 Route::post('/daftar-pelanggan', [DaftarPelangganController::class, 'index'])->name('daftar_pelanggan.list');
 Route::post('/bulk-update-status', [DaftarPelangganController::class, 'bulk_update_status'])->name('daftar_pelanggan.bulk');
+
+Route::get('/inbox', [InboxController::class, 'index'])->name('inbox.list');
+Route::get('/inbox/{id_pelanggan}', [InboxController::class, 'index'])->name('inbox.search');

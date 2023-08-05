@@ -89,12 +89,20 @@
                             <img class="h-auto arrow" src="{{ URL::asset('img/arrow-down.svg') }}" alt="Toggle">
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->routeIs('inbox.list') || request()->routeIs('inbox.search')  ? 'active' : '' }}">
                         <a href="#">
                             <img class="h-auto icon" src="{{ URL::asset('img/icon-chat.svg') }}" alt="Chat & Inbox">
                             <span class="label">Chat & Inbox</span>
                             <img class="h-auto arrow" src="{{ URL::asset('img/arrow-down.svg') }}" alt="Toggle">
                         </a>
+
+                        <ul style="height: {{ request()->routeIs('inbox.list') || request()->routeIs('inbox.search')  ? '100%' : '0' }};">
+                            <li class="{{ request()->routeIs('inbox.list') || request()->routeIs('inbox.search')  ? 'active' : '' }}">
+                                <a href="{{ route('inbox.list') }}">
+                                    <span class="label">Semua Pesan</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#">
