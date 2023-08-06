@@ -29,8 +29,8 @@
 
         <form action="" method="POST">
             @csrf
-            <input type="hidden" name="tanggal_mulai" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d') }}" />
-            <input type="hidden" name="tanggal_akhir" value="{{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d') }}" />
+            <input type="hidden" name="tanggal_mulai" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d', $min_date) }}" />
+            <input type="hidden" name="tanggal_akhir" value="{{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d', $max_date) }}" />
             <div class="d-inline-flex align-middle cs-wrap-filter">
                 <div class="cs-filter-date">
                     <input type="text" name="daterange" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d') }} - {{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d') }}" />
@@ -40,7 +40,7 @@
                 <div class="input-group cs-filter-product">
                     <span class="input-group-text" id="filter-product">Produk :</span>
                     <select name="id_paket_produk" class="form-select" aria-label="filter-product" autocomplete="off">
-                        <option value="" selected="selected">All</option>
+                        <option value="" selected="selected">Semua</option>
                         @if ($paket_produk)
                         @foreach ($paket_produk as $row)
                         <option value="{{ $row->ID_PAKET_PRODUK }}" {{ $row->ID_PAKET_PRODUK == $id_paket_produk ? 'selected="selected"' : '' }}>{{ $row->NAMA_PRODUK }}</option>

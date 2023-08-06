@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" />
 
@@ -18,15 +20,49 @@
             </div>
         </div>
 
-        <div class="d-inline-block w-100 align-middle" style="margin-bottom: -64px; z-index: 10; position: relative;">
-            <div class="input-group cs-search-table float-start">
-                <input type="text" class="form-control" placeholder="No Invoice" aria-label="No Invoice" aria-describedby="basic-addon2" autocomplete="off">
-                <span class="input-group-text" id="basic-addon2">
-                    <img class="icon" src="{{ URL::asset('img/icon-search-white.svg') }}" alt="" />
-                    <span class="label">CARI</span>
-                </span>
+        <form action="" method="POST">
+            @csrf
+            <input type="hidden" name="tanggal_mulai" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d', $min_date) }}" />
+            <input type="hidden" name="tanggal_akhir" value="{{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d', $max_date) }}" />
+            <div class="d-inline-flex align-middle cs-wrap-filter">
+                <div class="cs-filter-date">
+                    <input type="text" name="daterange" value="{{ !is_null($tanggal_mulai) ? $tanggal_mulai : date('Y-m-d') }} - {{ !is_null($tanggal_akhir) ? $tanggal_akhir : date('Y-m-d') }}" />
+                    <img class="icon" src="{{ URL::asset('img/icon-filter-date.svg') }}" alt="" />
+                </div>
+
+                <div class="input-group cs-filter-product">
+                    <span class="input-group-text" id="filter-product">Produk :</span>
+                    <select name="id_paket_produk" class="form-select" aria-label="filter-product" autocomplete="off">
+                        <option value="" selected="selected">Semua</option>
+                        @if ($paket_produk)
+                        @foreach ($paket_produk as $row)
+                        <option value="{{ $row->ID_PAKET_PRODUK }}" {{ $row->ID_PAKET_PRODUK == $id_paket_produk ? 'selected="selected"' : '' }}>{{ $row->NAMA_PRODUK }}</option>
+                        @endforeach
+                        @endif
+                    </select>
+                </div>
+
+                <div class="input-group cs-filter-status">
+                    <span class="input-group-text" id="filter-status">Status Berlangganan :</span>
+                    <select name="status_berlangganan" class="form-select" aria-label="filter-status" autocomplete="off">
+                        <option value="" selected="selected">Semua</option>
+                        <option value="aktif" {{ ($status_berlangganan == 'aktif' ? 'selected="selected"' : '') }}>Aktif</option>
+                        <option value="tidak_aktif" {{ ($status_berlangganan == 'tidak_aktif' ? 'selected="selected"' : '') }}>Tidak Aktif</option>
+                    </select>
+                </div>
             </div>
-        </div>
+        
+
+            <div class="d-inline-block w-100 align-middle" style="margin-bottom: -64px; z-index: 10; position: relative;">
+                <div class="input-group cs-search-table float-start">
+                    <input type="text" name="no_invoice" class="form-control" placeholder="No Invoice" aria-label="No Invoice" aria-describedby="basic-addon2" autocomplete="off" value="{{ $no_invoice }}">
+                    <button type="submit" class="input-group-text" id="basic-addon2">
+                        <img class="icon" src="{{ URL::asset('img/icon-search-white.svg') }}" alt="" />
+                        <span class="label">CARI</span>
+                    </button>
+                </div>
+            </div>
+        </form>
 
         <table id="daftarTransaksi" class="display cs-tables">
             <thead>
@@ -106,6 +142,27 @@
 @endsection
 
 @section('js')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+    $(function() {
+        var _tanggal_mulai = $('input[name="tanggal_mulai"]').val();
+        var _tanggal_akhir = $('input[name="tanggal_akhir"]').val();
+
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            startDate: _tanggal_mulai,
+            endDate: _tanggal_akhir,
+            locale: {
+                format: 'YYYY-MM-DD'
+            }
+        }, function(start, end, label) {
+            // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        });
+    });
+</script>
+
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -143,9 +200,15 @@
             // ]
         });
 
-        $('.cs-search-table input').keyup(function() {
-            _table.columns(1).search( $(this).val() ).draw();
+        $('.cs-wrap-filter .icon').click(function(e) {
+            e.preventDefault();
+
+            $(this).prevAll('input[name="daterange"]').click();
         })
+
+        // $('.cs-search-table input').keyup(function() {
+        //     _table.columns(1).search( $(this).val() ).draw();
+        // })
     } );
 </script>
 @endsection

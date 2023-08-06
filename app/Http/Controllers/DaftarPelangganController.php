@@ -39,13 +39,37 @@ class DaftarPelangganController extends Controller
 
         $pelanggan = $pelanggan->get();
 
+        // Get min max date
+        $min_date = 0;
+        $max_date = 0;
+        if ($pelanggan) {
+            foreach ($pelanggan as $row) {
+                if (!is_null($row->berlangganan_produk)) {
+                    if($min_date == 0) {
+                        $min_date = strtotime($row->berlangganan_produk->TANGGAL_MULAI);
+                        $max_date = strtotime($row->berlangganan_produk->TANGGAL_MULAI);
+                    } else {
+                        if(strtotime($row->berlangganan_produk->TANGGAL_MULAI) < $min_date) {
+                            $min_date = strtotime($row->berlangganan_produk->TANGGAL_MULAI);
+                        }
+            
+                        if(strtotime($row->berlangganan_produk->TANGGAL_MULAI) > $max_date) {
+                            $max_date = strtotime($row->berlangganan_produk->TANGGAL_MULAI);
+                        }
+                    }
+                }
+            }
+        }
+
         return view('daftar-pelanggan/index', [
             'paket_produk' => $paket_produk,
             'pelanggan' => $pelanggan,
             'tanggal_mulai' => $tanggal_mulai,
             'tanggal_akhir' => $tanggal_akhir,
             'id_paket_produk' => $id_paket_produk,
-            'page_title' => $page_title
+            'page_title' => $page_title,
+            'min_date' => $min_date,
+            'max_date' => $max_date
         ]);
     }
 
