@@ -1,0 +1,5 @@
+INSTALASI
+1. Buka terminal
+2. Masuk ke direktori proyek
+3. Ketik "php artisan migrate:refresh && php artisan db:seed --class=DataTableSeeder"
+4. Jalankan server "php artisan serve"
