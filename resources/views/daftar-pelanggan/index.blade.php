@@ -195,6 +195,183 @@
         </form>
     </div>
 </div>
+
+<div id="kyc-pelanggan">
+    <div>
+        <div class="kyc-wrap-header">
+            <h3>KYC PELANGGAN</h3>
+        </div>
+
+        <div class="d-flex flex-row w-100">
+            <div class="kyc-column-1">
+                <div>
+                    <div class="row kyc-form-row">
+                        <label for="nama_lengkap" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nama_lengkap" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="username" class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="username" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="email" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="no_hp" class="col-sm-3 col-form-label">No Hp</label>
+                        <div class="col-sm-9">
+                            <input type="tel" class="form-control" id="no_hp" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-9">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="L">
+                                <label class="form-check-label" for="inlineRadio1">Pria</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="P">
+                                <label class="form-check-label" for="inlineRadio2">Wanita</label>
+                            </div>
+                              
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="ttl" class="col-sm-3 col-form-label">Tempat & Tanggal Lahir</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="tempat_lahir" value="">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control" id="tanggal_lahir" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="alamat" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="kota" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="kota" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="npwp" class="col-sm-3 col-form-label">NPWP</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="npwp" value="">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="npwp" class="col-sm-3 col-form-label">NPWP</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="kyc-linked-btn">
+                                        <img src="{{ URL::asset('img/icon-facebook.svg') }}" alt="" />
+                                        <span>Facebook</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="kyc-linked-btn">
+                                        <img src="{{ URL::asset('img/icon-gmail.svg') }}" alt="" />
+                                        <span>Gmail</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="tipe_akun" class="col-sm-3 col-form-label">Tipe Akun</label>
+                        <div class="col-sm-9">
+                            <select class="form-select" name="tipe_akun" aria-label="Tipe Akun">
+                                <option value="pelanggan">Perorangan</option>
+                                <option value="mitra">Mitra</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <label for="password" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="password" value="" placeholder="Eg. ********">
+                        </div>
+                    </div>
+                    <div class="row kyc-form-row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-reset-password">
+                                <span>Reset Password</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kyc-column-2">
+                <div>
+                    <div class="mb-3 kyc-form-row">
+                        <label for="password" class="col-form-label">Foto Profil</label>
+                        <div>
+                            <div id="previewFotoProfil" class="kyc-preview-wrap">
+                                <img src="" alt="" class="kyc-preview-image">
+                                <input type="file" class="kyc-preview-file" accept="image/png, image/gif, image/jpeg" data-id="previewFotoProfil">
+
+                                <img src="{{ URL::asset('img/icon-media-download.svg') }}" alt="" class="kyc-media-download" />
+                                <img src="{{ URL::asset('img/icon-media-pencil.svg') }}" alt="" class="kyc-media-pencil" data-id="previewFotoProfil" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 kyc-form-row">
+                        <label for="password" class="col-form-label">Foto KTP</label>
+                        <div>
+                            <div id="previewFotoKTP" class="kyc-preview-wrap">
+                                <img src="" alt="" class="kyc-preview-image">
+                                <input type="file" class="kyc-preview-file" accept="image/png, image/gif, image/jpeg" data-id="previewFotoKTP">
+
+                                <img src="{{ URL::asset('img/icon-media-download.svg') }}" alt="" class="kyc-media-download" />
+                                <img src="{{ URL::asset('img/icon-media-pencil.svg') }}" alt="" class="kyc-media-pencil" data-id="previewFotoKTP" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 kyc-form-row">
+                        <label for="password" class="col-form-label">Foto NPWP</label>
+                        <div>
+                            <div id="previewFotoNPWP" class="kyc-preview-wrap">
+                                <img src="" alt="" class="kyc-preview-image">
+                                <input type="file" class="kyc-preview-file" accept="image/png, image/gif, image/jpeg" data-id="previewFotoNPWP">
+
+                                <img src="{{ URL::asset('img/icon-media-download.svg') }}" alt="" class="kyc-media-download" />
+                                <img src="{{ URL::asset('img/icon-media-pencil.svg') }}" alt="" class="kyc-media-pencil" data-id="previewFotoNPWP" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-cancel">
+            <span>Batalkan</span>
+        </button>
+        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-save">
+            <span>Simpan</span>
+        </button>
+    </div>
+</div>
 @endsection
 
 @section('js')
@@ -349,6 +526,38 @@
                 // Silent is gold
             }
         }))
+
+        $('.cs-add-pelanggan button').click(function() {
+            $('#kyc-pelanggan').toggle();
+        })
+        
+        // KYC
+        $('.kyc-media-pencil').click(function() {
+            var _preview_id = $(this).data('id');
+
+            $('#' + _preview_id + ' .kyc-preview-file').click();
+        })
+
+        $('.kyc-preview-file').on('change', (function() {
+            var _preview_id = $(this).data('id');
+            
+            var file = $("input[type=file]").get(0).files[0];
+            
+            if(file){
+                var reader = new FileReader();
+                
+                reader.onload = function(){
+                    $("#" + _preview_id + ' .kyc-preview-image').attr("src", reader.result);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }))
+
+        $('.kyc-btn-cancel').click(function() {
+            $('#kyc-pelanggan').toggle();
+        })
+        // KYC
     } );
 </script>
 @endsection

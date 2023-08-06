@@ -1,0 +1,18 @@
+<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="27" height="27" fill="#F5F5F5"/>
+<g id="Pop Up - KYC Pelanggan">
+<g clip-path="url(#clip0_0_1)">
+<rect x="-972" y="-262" width="1045" height="816" rx="10" fill="white"/>
+<rect id="Rectangle 663" x="-258" y="-140" width="271" height="156" rx="5" fill="#D9D9D9"/>
+<g id="Group 142">
+<circle id="Ellipse 29" cx="13.5" cy="13.5" r="11.5" fill="#7BB43F" stroke="white" stroke-width="4"/>
+<path id="Vector" d="M17.2302 10.2679C17.448 10.0393 17.5679 9.73571 17.5679 9.41274C17.5679 9.08977 17.448 8.78616 17.2302 8.55754L16.3163 7.59831C16.0985 7.3697 15.8092 7.2439 15.5015 7.2439C15.1938 7.2439 14.9046 7.3697 14.6873 7.59771L8.56097 14.0081V16.6783H11.1038L17.2302 10.2679ZM15.5015 8.45352L16.416 9.41214L15.4998 10.3702L14.5859 9.41153L15.5015 8.45352ZM9.71341 15.4687V14.5101L13.77 10.2655L14.6839 11.2248L10.6279 15.4687H9.71341ZM8.56097 17.8879H17.7805V19.0976H8.56097V17.8879Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect x="-972" y="-262" width="1045" height="816" rx="10" fill="white"/>
+</clipPath>
+</defs>
+</svg>

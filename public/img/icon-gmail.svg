@@ -1,0 +1,26 @@
+<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="23" height="18" fill="#F5F5F5"/>
+<g id="Pop Up - KYC Pelanggan">
+<g clip-path="url(#clip0_0_1)">
+<rect x="-531" y="-533" width="1045" height="816" rx="10" fill="white"/>
+<rect id="Rectangle 479" x="-61" y="-12" width="211" height="42" rx="5" fill="#ECECEC"/>
+<g id="Group 324" opacity="0.5">
+<g id="logos:google-gmail" clip-path="url(#clip1_0_1)">
+<path id="Vector" d="M5.22729 17.9114V8.68662L2.47133 6.06935L0 4.61694V16.2835C0 17.1842 0.703027 17.9114 1.56822 17.9114H5.22729Z" fill="#4285F4"/>
+<path id="Vector_2" d="M17.7727 17.9113H21.4318C22.2996 17.9113 23 17.1814 23 16.2834V4.61694L20.2008 6.2805L17.7727 8.68653V17.9113Z" fill="#34A853"/>
+<path id="Vector_3" d="M5.2273 8.6867L4.85229 5.08232L5.2273 1.63257L11.5 6.51626L17.7727 1.63257L18.1922 4.89607L17.7727 8.6867L11.5 13.5704L5.2273 8.6867Z" fill="#EA4335"/>
+<path id="Vector_4" d="M17.7727 1.63247V8.6866L23 4.61692V2.44639C23 0.433277 20.7862 -0.71434 19.2364 0.492966L17.7727 1.63247Z" fill="#FBBC04"/>
+<path id="Vector_5" d="M0 4.61672L2.40413 6.48854L5.22729 8.6864V1.63227L3.76355 0.492765C2.21105 -0.714634 0 0.433075 0 2.44609V4.61663V4.61672Z" fill="#C5221F"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect x="-531" y="-533" width="1045" height="816" rx="10" fill="white"/>
+</clipPath>
+<clipPath id="clip1_0_1">
+<rect width="23" height="18" fill="white"/>
+</clipPath>
+</defs>
+</svg>

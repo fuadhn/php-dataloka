@@ -197,3 +197,184 @@
     top: 10px;
     position: relative;
 }
+
+/* KYC */
+#kyc-pelanggan {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: 20;
+    overflow: scroll;
+}
+
+#kyc-pelanggan > div:nth-child(1) {
+    padding: 20px 23px 105.8px 23px;
+}
+
+.kyc-wrap-header {
+    padding: 14px 19px 11px 19px;
+    border-radius: 5px;
+    background: #F4F8F9;
+    margin-bottom: 30px;
+}
+
+.kyc-wrap-header h3 {
+    color: #18120F;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.kyc-column-1 {
+    width: calc(100% - 341px);
+}
+
+.kyc-column-1 > div {
+    padding-left: 22px;
+    padding-right: 30px;
+}
+
+.kyc-column-2 {
+    width: 341px;
+}
+
+.kyc-column-2 > div {
+    padding-right: 37px;
+}
+
+/* Form */
+.kyc-form-row {
+    margin-bottom: 5px;
+}
+
+.kyc-form-row .col-form-label {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.kyc-form-row .form-control,
+.kyc-form-row .form-select {
+    border-radius: 5px;
+    background: #ECECEC;
+    color: var(--dark-ticmi, #18120F);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 13px 19px 10px 19px;
+}
+
+.kyc-linked-btn {
+    cursor: pointer;
+    padding: 9px;
+    text-align: center;
+    border-radius: 5px;
+    background: #ECECEC; 
+}
+
+.kyc-linked-btn:hover {
+    background: #dddddd;
+}
+
+.kyc-linked-btn span {
+    margin-left: 4px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.kyc-btn-reset-password {
+    background: #1B1B1B !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-width: 150px;
+}
+
+#kyc-pelanggan > div:nth-child(2) {
+    border-top: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px -2px 7px 0px #E6EAE3;
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.kyc-btn-cancel {
+    background: #8B8B8B !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-width: 150px;
+    margin-right: 12px;
+}
+
+.kyc-btn-save {
+    background: #7BB43F !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-width: 150px;
+}
+
+.kyc-preview-wrap {
+    border-radius: 5px;
+    background: #D9D9D9; 
+    padding: 10px;
+    min-height: 156px;
+    position: relative;
+}
+
+.kyc-preview-file {
+    display: none;
+}
+
+.kyc-preview-image {
+    width: 100%;
+    height: auto;
+}
+
+.kyc-media-pencil {
+    cursor: pointer;
+    position: absolute;
+    bottom: -13.5px;
+    right: -13.5px;
+}
+
+.kyc-media-download {
+    cursor: pointer;
+    position: absolute;
+    bottom: 18.5px;
+    right: -13.5px;
+}
+/* KYC */
