@@ -745,9 +745,33 @@
             $('#kyc-pelanggan').toggle();
         })
 
+        // KYC
+        $('.kyc-media-pencil').click(function() {
+            var _preview_id = $(this).data('id');
+
+            $('#' + _preview_id + ' .kyc-preview-file').click();
+        })
+
+        $('.kyc-preview-file').on('change', (function() {
+            var _preview_id = $(this).data('id');
+            
+            var file = $(this).get(0).files[0];
+            
+            if(file){
+                var reader = new FileReader();
+                
+                reader.onload = function(){
+                    $("#" + _preview_id + ' .kyc-preview-image').attr("src", reader.result);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }))
+
         $('.kyc-btn-cancel').click(function() {
             $('#kyc-pelanggan').toggle();
         })
+        // KYC
 
         $('.cs-toggle-invoice').click(function(e) {
             e.preventDefault();

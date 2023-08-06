@@ -542,7 +542,7 @@
         $('.kyc-preview-file').on('change', (function() {
             var _preview_id = $(this).data('id');
             
-            var file = $("input[type=file]").get(0).files[0];
+            var file = $(this).get(0).files[0];
             
             if(file){
                 var reader = new FileReader();

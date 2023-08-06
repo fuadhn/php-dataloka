@@ -34,8 +34,8 @@ class DaftarPelangganController extends Controller
             if(!is_null($id_paket_produk)) {
                 $query->where('ID_PAKET_PRODUK', '=', $id_paket_produk);
             }
-        }]);
-        // ->where('STATUS_AKUN', '!=', 'delete');
+        }])
+        ->where('STATUS_AKUN', '!=', 'delete');
 
         $pelanggan = $pelanggan->where('DELETED', 0)->get();
 
