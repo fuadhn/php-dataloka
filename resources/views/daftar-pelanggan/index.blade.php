@@ -275,7 +275,7 @@
                         </div>
                     </div>
                     <div class="row kyc-form-row">
-                        <label for="npwp" class="col-sm-3 col-form-label">NPWP</label>
+                        <label for="npwp" class="col-sm-3 col-form-label">Linked Account</label>
                         <div class="col-sm-9">
                             <div class="row">
                                 <div class="col-sm-6">
