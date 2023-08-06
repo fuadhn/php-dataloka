@@ -1,3 +1,9 @@
+DATABASE
+user: root
+password: 
+database: php_dataloka
+*konfigurasi ada di file .env
+
 INSTALASI
 1. Buka terminal
 2. Masuk ke direktori proyek
