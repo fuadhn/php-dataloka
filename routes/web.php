@@ -26,6 +26,7 @@ Route::post('/bulk-update-status', [DaftarPelangganController::class, 'bulk_upda
 
 Route::get('/inbox', [InboxController::class, 'index'])->name('inbox.list');
 Route::get('/inbox/{id_pelanggan}', [InboxController::class, 'index'])->name('inbox.search');
+Route::get('/inbox/resend_invoice/{id_pelanggan}/{nomor_invoice}', [InboxController::class, 'resend_invoice'])->name('inbox.resend_invoice');
 
 Route::get('/profil-pelanggan/{id_pelanggan}', [ProfilPelangganController::class, 'index'])->name('profil_pelanggan.index');
 Route::post('/profil-pelanggan/{id_pelanggan}', [ProfilPelangganController::class, 'index'])->name('profil_pelanggan.index');

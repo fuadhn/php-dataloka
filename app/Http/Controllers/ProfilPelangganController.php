@@ -18,7 +18,7 @@ class ProfilPelangganController extends Controller
             $id_paket_produk = $request->id_paket_produk;
             $status_berlangganan = $request->status_berlangganan;
             $daterange = $request->daterange;
-            $pelanggan = M_pelanggan::find($id_pelanggan);
+            $pelanggan = M_pelanggan::find($id_pelanggan)->first();
             $tanggal_mulai = null;
             $tanggal_akhir = null;
             if(!is_null($daterange)) {
@@ -103,7 +103,8 @@ class ProfilPelangganController extends Controller
                 'status_berlangganan' => $status_berlangganan,
                 'no_invoice' => $no_invoice,
                 'min_date' => $min_date,
-                'max_date' => $max_date
+                'max_date' => $max_date,
+                'pelanggan' => $pelanggan
             ]);
         } else {
             return redirect('/daftar-pelanggan');

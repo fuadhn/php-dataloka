@@ -96,7 +96,7 @@
                         <a href="#" class="cs-invoice cs-toggle-invoice">
                             <span>{{ $row->NOMOR_TAGIHAN }}</span>
                         </a>
-                        <a href="#" class="cs-resend-invoice">
+                        <a href="{{ route('inbox.resend_invoice', ['id_pelanggan' => $pelanggan->ID_PELANGGAN, 'nomor_invoice' => $row->NOMOR_TAGIHAN]) }}" class="cs-resend-invoice">
                             <span>Kirim Ulang</span>
                         </a>
                     </td>
