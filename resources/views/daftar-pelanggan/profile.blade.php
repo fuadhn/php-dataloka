@@ -24,7 +24,7 @@
                     <a href="{{ route('inbox.search', $pelanggan->ID_PELANGGAN) }}">
                         <button type="button" class="btn bg-success text-white text-uppercase cs-profil-btn">
                             <img class="icon" src="{{ URL::asset('img/icon-send-white.svg') }}" alt="" />
-                            <span>Lihat Pesan</span>
+                            <span>Kirim Pesan</span>
                         </button>
                     </a>
                 </div>
@@ -167,7 +167,7 @@
                         </div>
                     </td>
                     <td>
-                        <a href="#" class="cs-invoice cs-toggle-invoice">
+                        <a href="#" class="cs-invoice cs-toggle-invoice" data-id="{{ $row->ID_TAGIHAN }}">
                             <span>{{ $row->NOMOR_TAGIHAN }}</span>
                         </a>
                         <a href="{{ route('inbox.resend_invoice', ['id_pelanggan' => $pelanggan->ID_PELANGGAN, 'nomor_invoice' => $row->NOMOR_TAGIHAN]) }}" class="cs-resend-invoice">
@@ -184,10 +184,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 @php
-                                $daftar_produk = get_daftar_produk($row->ID_TAGIHAN);
+                                $daftar_produk = get_daftar_produk($row->ID_TAGIHAN)['daftar_produk'];
                                 
                                 foreach($daftar_produk as $item) {
-                                    echo '<li><div class="dropdown-item text-sm">' . $item . '</div></li>';
+                                    echo '<li><div class="dropdown-item text-sm">' . $item['nama_produk'] . '@' . $item['qty'] . '</div></li>';
                                 }
                                 @endphp
                             </ul>
@@ -217,7 +217,7 @@
 <div class="cs-footer-actions">
     <div>
         <a href="{{ route('daftar_pelanggan.list') }}">
-            <button type="submit" class="btn bg-primary text-white text-uppercase cs-footer-back-btn">
+            <button type="button" class="btn bg-primary text-white text-uppercase cs-footer-back-btn">
                 <img src="{{ URL::asset('img/icon-chevron-left.svg') }}" alt="" />
                 <span>Kembali</span>
             </button>
@@ -225,6 +225,7 @@
     </div>
 </div>
 
+{{-- KYC --}}
 <div id="kyc-pelanggan">
     <div>
         <div class="kyc-wrap-header">
@@ -340,7 +341,7 @@
                     <div class="row kyc-form-row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-9">
-                            <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-reset-password mt-2">
+                            <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-reset-password mt-2">
                                 <span>Reset Password</span>
                             </button>
                         </div>
@@ -393,10 +394,175 @@
     </div>
 
     <div>
-        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-cancel">
+        <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-cancel">
             <span>Batalkan</span>
         </button>
-        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-save">
+        <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-save">
+            <span>Simpan</span>
+        </button>
+    </div>
+</div>
+
+{{-- INVOICE --}}
+<div id="invoice">
+    <div class="header">
+        <div class="d-inline-block w-100 align-middle">
+            <div class="float-start">
+                <img src="{{ URL::asset('img/logo-ticmi.jpg') }}" alt="" />
+            </div>
+            <div class="float-end">
+                <label for="invoice-number" class="cs-invoice-label">INVOICE</label>
+                <h2 class="cs-invoice-number" id="inv-nomor-tagihan">#NOMOR_TAGIHAN</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="cs-meta-pelanggan">
+            <div class="row">
+                <div class="col-sm-3">
+                    <span>Pelanggan</span>
+                    <p id="inv-nama-pelanggan">#NAMA_PELANGGAN</p>
+                </div>
+                <div class="col-sm-3">
+                    <span>Tanggal Transaksi</span>
+                    <p id="inv-tanggal-tagihan">#TANGGAL_TAGIHAN</p>
+                </div>
+                <div class="col-sm-3">
+                    <span>Tanggal Jatuh Tempo</span>
+                    <p id="inv-tanggal-jatuh-tempo">#TANGGAL_JATUH_TEMPO</p>
+                </div>
+                <div class="col-sm-3">
+                    <span>Metode Pembayaran</span>
+                    <p id="inv-metode-pembayaran">#METODE_PEMBAYARAN</p>
+                </div>
+            </div>
+        </div>
+
+        <table class="cs-invoice-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Produk</th>
+                    <th>Qty</th>
+                    <th>Periode Langganan</th>
+                    <th>Harga Satuan</th>
+                    <th>Diskon</th>
+                    <th>Pajak</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <span>Pre-Packaged A</span>
+                        <a href="#">Lihat Produk</a>
+                    </td>
+                    <td>1</td>
+                    <td>1 Tahun</td>
+                    <td>Rp 300.000</td>
+                    <td>
+                        <span>0%</span>
+                        <small>Diskon spesial A</small>
+                    </td>
+                    <td>11%</td>
+                    <td>Rp 300.0000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">
+                        <div class="cs-invoice-note">
+                            <strong>Catatan: </strong>
+                            <span></span>
+                        </div>
+                    </th>
+                    <th colspan="4" style="text-align: right;">
+                        <table class="cs-pricing-table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Subtotal</strong></td>
+                                    <td><strong id="inv-subtotal">#SUB_TOTAL</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Termasuk PPN 11%</td>
+                                    <td id="inv-ppn">#PPN</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Jumlah</strong></td>
+                                    <td><strong id="inv-jumlah">#JUMLAH</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DP / Uang Muka</strong></td>
+                                    <td><strong id="inv-uang-muka">#UANG_MUKA</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Diskon</strong></td>
+                                    <td><strong id="inv-diskon">#DISKON</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Bayar</strong></td>
+                                    <td><strong id="inv-total">#TOTAL</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="cs-corporate d-flex flex-row w-100">
+            <div class="column-1">
+                <div>
+                    <img src="{{ URL::asset('img/logo-corporate-ticmi.jpg') }}" alt="" />
+                </div>
+            </div>
+            <div class="column-2">
+                <div>
+                    <p>
+                        <strong>PT Indonesian Capital Market Electronic Library</strong>
+                        <span class="d-block">Indonesian Stock Exchange Building, Tower II, 1st Floor Jl. Jend. Sudirman Kav. 52-53, Jakarta-12190</span>
+                        <br>
+                        <strong>Telp : 021 515 23 18</strong>
+                        <span class="d-block">info@icamel.co.id</span>
+                    </p>
+                </div>
+            </div>
+            <div class="column-3">
+                <div>
+                    <span>NPWP TICMI</span>
+                    <p>729.832.2500-23</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cs-invoice-buttons">
+            <button type="button" class="btn bg-dark text-white text-uppercase print">
+                <img class="icon" src="{{ URL::asset('img/icon-print-white.svg') }}" alt="" />
+                <span>Cetak & Lihat</span>
+            </button>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn bg-transparent text-white dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span><strong>Status : </strong>Belum Bayar</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><div class="dropdown-item">Belum Bayar</div></li>
+                  <li><div class="dropdown-item">Dibayar</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button type="button" class="btn bg-transparent text-dark invoice-btn-label">
+            <span>Simpan Perubahan?</span>
+        </button>
+        <button type="button" class="btn bg-dark text-white text-uppercase invoice-btn-cancel">
+            <span>Batalkan</span>
+        </button>
+        <button type="button" class="btn bg-dark text-white text-uppercase invoice-btn-save">
             <span>Simpan</span>
         </button>
     </div>
@@ -434,6 +600,29 @@
 <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
 <script>
     $(document).ready( function () {
+        var formatRupiah = function(num=0){
+            var str = num.toString().replace("", ""), parts = false, output = [], i = 1, formatted = null;
+            
+            if(str.indexOf(".") > 0) {
+                parts = str.split(".");
+                str = parts[0];
+            }
+
+            str = str.split("").reverse();
+            for(var j = 0, len = str.length; j < len; j++) {
+                if(str[j] != ",") {
+                output.push(str[j]);
+                if(i%3 == 0 && j < (len - 1)) {
+                    output.push(".");
+                }
+                i++;
+                }
+            }
+            
+            formatted = output.reverse().join("");
+            return("" + formatted + ((parts) ? "." + parts[1].substr(0, 2) : ""));
+        };
+
         var _table = $('#daftarTransaksi').DataTable({
             // columnDefs: [
             //     {
@@ -558,6 +747,70 @@
 
         $('.kyc-btn-cancel').click(function() {
             $('#kyc-pelanggan').toggle();
+        })
+
+        $('.cs-toggle-invoice').click(function(e) {
+            e.preventDefault();
+
+            var _url = "{{ route('api.get_invoice') }}";
+            var _id_tagihan = $(this).data('id');
+
+            $.ajax({
+                method: 'POST',
+                url: _url,
+                data: 'id_tagihan=' + _id_tagihan,
+                dataType: 'json',
+                processData: false,
+                success: function(response) {
+                    // Silent is gold
+                    console.log(response); // this is for debug only
+
+                    if(response.success) {
+                        $('#inv-nomor-tagihan').text(response.data.nomor_tagihan);
+                        $('#inv-nama-pelanggan').text(response.data.nama_pelanggan);
+                        $('#inv-tanggal-tagihan').text(response.data.tanggal_tagihan);
+                        $('#inv-tanggal-jatuh-tempo').text(response.data.tanggal_jatuh_tempo);
+                        $('#inv-metode-pembayaran').text(response.data.metode_pembayaran);
+
+                        // Clear table
+                        $('.cs-invoice-table > tbody').html('');
+                        
+                        for(i=0;i<response.data.daftar_produk.length;i++) {
+                            $('.cs-invoice-table > tbody').append('<tr>'+
+                                '<td>' + (i + 1) + '</td>'+
+                                '<td>'+
+                                    '<span>' + response.data.daftar_produk[i].nama_produk + '</span>'+
+                                    '<a href="#">Lihat Produk</a>'+
+                                '</td>'+
+                                '<td>' + response.data.daftar_produk[i].qty + '</td>'+
+                                '<td>' + response.data.daftar_produk[i].periode + ' Bulan</td>'+
+                                '<td>Rp ' + formatRupiah(response.data.daftar_produk[i].harga_satuan) + '</td>'+
+                                '<td>'+
+                                    '<span>0%</span>'+
+                                    '<small>Tidak ada</small>'+
+                                '</td>'+
+                                '<td>Tidak ada</td>'+
+                                '<td>Rp ' + formatRupiah(response.data.daftar_produk[i].harga_satuan * response.data.daftar_produk[i].qty) + '</td>'+
+                            '</tr>');
+                        }
+
+                        $('#inv-subtotal').text('Rp ' + formatRupiah(response.data.jumlah_tagihan));
+                        $('#inv-ppn').text('Rp ' + formatRupiah(response.data.ppn));
+                        $('#inv-jumlah').text('Rp ' + formatRupiah(response.data.ppn + response.data.jumlah_tagihan));
+                        $('#inv-uang-muka').text('Rp ' + formatRupiah(response.data.uang_muka));
+                        $('#inv-diskon').text('Rp ' + formatRupiah(response.data.diskon));
+                        $('#inv-total').text('Rp ' + formatRupiah(response.data.jumlah_bayar));
+
+                        console.log(response.data.uang_muka);
+
+                        $('#invoice').toggle();
+                    }
+                }
+            })
+        })
+
+        $('.invoice-btn-cancel').click(function() {
+            $('#invoice').toggle();
         })
     } );
 </script>

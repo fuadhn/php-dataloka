@@ -1,0 +1,15 @@
+<svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="22" height="21" fill="#F5F5F5"/>
+<g id="Pop Up - Detail Invoice Retail">
+<g clip-path="url(#clip0_0_1)">
+<rect x="-641" y="-742" width="1054" height="937" rx="10" fill="white"/>
+<rect id="Rectangle 561" x="-24" y="-11" width="184.873" height="42" rx="21" fill="#0F0F0F"/>
+<path id="Vector" d="M6 17.4667H2.25C1.91848 17.4667 1.60054 17.3332 1.36612 17.0957C1.1317 16.8581 1 16.5359 1 16.2V9.86667C1 9.19478 1.26339 8.55042 1.73223 8.07533C2.20107 7.60024 2.83696 7.33333 3.5 7.33333H18.5C19.163 7.33333 19.7989 7.60024 20.2678 8.07533C20.7366 8.55042 21 9.19478 21 9.86667V16.2C21 16.5359 20.8683 16.8581 20.6339 17.0957C20.3995 17.3332 20.0815 17.4667 19.75 17.4667H16M6 1H16V7.33333H6V1ZM6 14.9333H16V20H6V14.9333Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect x="-641" y="-742" width="1054" height="937" rx="10" fill="white"/>
+</clipPath>
+</defs>
+</svg>

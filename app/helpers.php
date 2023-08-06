@@ -55,6 +55,32 @@ function get_harga_satuan($id_tagihan) {
 }
 
 function get_daftar_produk($id_tagihan) {
+    $arr = [];
+
+    $tagihan = T_tagihan_produk::find($id_tagihan);
+    $uang_muka = 0;
+    $diskon = 0;
+    $jumlah_bayar = 0;
+
+    if(T_pembayaran::where('ID_TAGIHAN', $id_tagihan)->exists()) {
+        $pembayaran = T_pembayaran::with('metode_pembayaran')->where('ID_TAGIHAN', $id_tagihan)->first();
+
+        $uang_muka = $pembayaran->UANG_MUKA;
+        $diskon = $pembayaran->DISKON;
+        $jumlah_bayar = $pembayaran->JUMLAH_BAYAR;
+    }
+
+    $arr['nomor_tagihan'] = $tagihan->NOMOR_TAGIHAN;
+    $arr['nama_pelanggan'] = ""; // default
+    $arr['jumlah_tagihan'] = $tagihan->JUMLAH_TAGIHAN;
+    $arr['tanggal_tagihan'] = $tagihan->TANGGAL_TAGIHAN;
+    $arr['tanggal_jatuh_tempo'] = $tagihan->TANGGAL_JATUH_TEMPO;
+    $arr['metode_pembayaran'] = get_jenis_pembayaran($id_tagihan);
+    $arr['ppn'] = $tagihan->BESAR_PAJAK;
+    $arr['uang_muka'] = $uang_muka;
+    $arr['diskon'] = $diskon;
+    $arr['jumlah_bayar'] = $jumlah_bayar;
+
     // Get all id berlangganan
     $arr_id_berlangganan = [];
     $arr_qty = [];
@@ -64,23 +90,39 @@ function get_daftar_produk($id_tagihan) {
         if(!is_null($row->berlangganan_produk)) {
             if(!in_array($row->berlangganan_produk->ID_BERLANGGANAN, $arr_id_berlangganan)) {
                 $arr_id_berlangganan[] = $row->berlangganan_produk->ID_BERLANGGANAN;
-                $arr_qty[] = $row->JUMLAH;
+                $arr_qty[$row->berlangganan_produk->ID_BERLANGGANAN] = $row->JUMLAH;
             }
         }
     }
 
-    $berlangganan_produk = T_berlangganan_produk::with('paket_produk')->whereIn('ID_BERLANGGANAN', $arr_id_berlangganan)->get();
+    $berlangganan_produk = T_berlangganan_produk::with('paket_produk')->with('pelanggan')->whereIn('ID_BERLANGGANAN', $arr_id_berlangganan)->get();
 
     $arr_produk = [];
 
-    $i=0;
     foreach($berlangganan_produk as $row) {
-        $arr_produk[] = $row->paket_produk->NAMA_PRODUK . " x " . $arr_qty[$i];
+        $arr['nama_pelanggan'] = $row->pelanggan->NAMA_PELANGGAN;
 
-        $i++;
+        $date1 = new DateTime($row->TANGGAL_MULAI);
+        $date2 = new DateTime($row->TANGGAL_AKHIR);
+        $diff = $date1->diff($date2);
+        $periode = (($diff->format('%y') * 12) + $diff->format('%m'));
+
+        $temp = array(
+            'nama_produk' => $row->paket_produk->NAMA_PRODUK,
+            'qty' => $arr_qty[$row->ID_BERLANGGANAN],
+            'periode' => $periode,
+            'harga_satuan' => $row->paket_produk->HARGA,
+            'diskon' => '-',
+            'pajak' => '-',
+            'subtotal' => $arr_qty[$row->ID_BERLANGGANAN] * $row->paket_produk->HARGA
+        );
+
+        array_push($arr_produk, $temp);
     }
 
-    return $arr_produk;
+    $arr['daftar_produk'] = $arr_produk;
+
+    return $arr;
 }
 
 function get_jenis_pembayaran($id_tagihan) {

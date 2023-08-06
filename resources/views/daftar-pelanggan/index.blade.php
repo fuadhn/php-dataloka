@@ -311,7 +311,7 @@
                     <div class="row kyc-form-row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-9">
-                            <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-reset-password">
+                            <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-reset-password">
                                 <span>Reset Password</span>
                             </button>
                         </div>
@@ -364,10 +364,10 @@
     </div>
 
     <div>
-        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-cancel">
+        <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-cancel">
             <span>Batalkan</span>
         </button>
-        <button type="submit" class="btn bg-dark text-white text-uppercase kyc-btn-save">
+        <button type="button" class="btn bg-dark text-white text-uppercase kyc-btn-save">
             <span>Simpan</span>
         </button>
     </div>

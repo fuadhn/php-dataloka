@@ -110,4 +110,23 @@ class ProfilPelangganController extends Controller
             return redirect('/daftar-pelanggan');
         }
     }
+
+    public function get_invoice(Request $request) {
+        if(T_tagihan_produk::where('ID_TAGIHAN', $request->id_tagihan)->exists()) {
+            $data = get_daftar_produk($request->id_tagihan);
+
+            $data['tanggal_tagihan'] = date('d/m/Y', strtotime($data['tanggal_tagihan']));
+            $data['tanggal_jatuh_tempo'] = date('d/m/Y', strtotime($data['tanggal_jatuh_tempo']));
+
+            return response()->json([
+                'success' => true,
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data' => array()
+            ], 404);
+        }
+    }
 }

@@ -483,3 +483,310 @@
     right: -13.5px;
 }
 /* KYC */
+
+/* INVOICE */
+#invoice {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: 20;
+    overflow: scroll;
+}
+
+#invoice .header {
+    padding: 41px 33px 43px 33px; 
+    background: linear-gradient(180deg, #F8F8F8 5.21%, #EDEFEB 37.84%, #EEF3E9 60.35%, #DBE4D1 100%);
+}
+
+#invoice .header .float-end {
+    margin-top: 28px;
+}
+
+#invoice .header .cs-invoice-label {
+    color: #7BB43F;
+    text-align: right;
+    margin-bottom: 8px;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: block;
+}
+
+#invoice .header .cs-invoice-number {
+    color: #E31931;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+#invoice .content {
+    margin-top: -30px;
+    padding: 0 33px 164px 33px;
+}
+
+#invoice .content .cs-meta-pelanggan {
+    padding: 13px 32px 20px 32px;
+    border-radius: 10px;
+    border: 0.5px solid var(--grey-form, #D9D9D9);
+    background: #FFF;
+    margin-bottom: 16px;
+}
+
+#invoice .content .cs-meta-pelanggan .row .col-sm-3 span {
+    color: #7BB43F;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+#invoice .content .cs-meta-pelanggan .row .col-sm-3 p {
+    color: #252525;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.cs-invoice-table {
+    border: 0;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.cs-invoice-table thead tr th {
+    padding: 17px;
+    background: #F4F8F9; 
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.cs-invoice-table thead tr th:first-child {
+    border-radius: 5px 0 0 5px;
+    padding-left: 26px;
+}
+
+.cs-invoice-table thead tr th:last-child {
+    border-radius: 0 5px 5px 0;
+    padding-right: 26px;
+}
+
+.cs-invoice-table tbody tr td {
+    border-bottom: 0.5px solid #A8A8A8;
+    padding: 17px;
+    background: #FFFFFF; 
+    color: #1B1B1B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.cs-invoice-table tbody tr td span {
+    display: block;
+}
+
+.cs-invoice-table tbody tr td a {
+    color: #7BB43F;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline; 
+}
+
+.cs-invoice-table tbody tr td small {
+    color: #333;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+#invoice .footer {
+    border-top: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px -2px 7px 0px #E6EAE3;
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.invoice-btn-label {
+    background: transparent !important;
+    border-color: transparent !important;
+    cursor: default !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    min-width: 150px;
+    margin-right: 12px;
+}
+
+.invoice-btn-cancel {
+    background: #8B8B8B !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-width: 150px;
+    margin-right: 12px;
+}
+
+.invoice-btn-save {
+    background: #7BB43F !important;
+    border-radius: 50px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-width: 150px;
+}
+
+.cs-invoice-note {
+    border-radius: 5px;
+    background: #F4F8F9; 
+    padding: 15px 18px;
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    min-height: 121px;
+}
+
+.cs-pricing-table {
+    /* width: 100%; */
+    border: 0;
+    float: right;
+}
+
+.cs-pricing-table tbody tr td {
+    padding: 8px;
+    border-bottom: 0 solid transparent;
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal; 
+}
+
+.cs-pricing-table tbody tr td:first-child {
+    text-align: right;
+    min-width: 150px;
+}
+
+.cs-pricing-table tbody tr td:last-child {
+    min-width: 120px;
+}
+
+/* Corporate */
+.cs-corporate {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #A8A8A8;
+    margin-bottom: 24px;
+}
+
+.cs-corporate .column-1 {
+    width: 129px;
+    margin-left: 14px;
+}
+
+.cs-corporate .column-2 {
+    margin-left: 18px;
+    width: 304px;
+}
+
+.cs-corporate .column-2 p {
+    color: #333;
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal; 
+}
+
+.cs-corporate .column-2 p span {
+    margin-bottom: 8px;
+}
+
+.cs-corporate .column-3 {
+    margin-left: 35px;
+    width: calc(100% - 35px - 340px - 18px - 129px - 14px);
+}
+
+.cs-corporate .column-3 span {
+    color: #7BB43F;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.cs-corporate .column-3 p {
+    color: #252525;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+/* Buttons */
+.cs-invoice-buttons {
+    text-align: right;
+}
+
+.cs-invoice-buttons button {
+    border: 1px solid transparent;
+    padding: 8px;
+    border-radius: 50px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    height: 40px;
+    min-width: 185px;
+    margin-right: 12px;
+}
+
+.cs-invoice-buttons button.print {
+    background: #0F0F0F !important;
+    color: #ffffff !important;
+    border-color: #0F0F0F;
+    font-weight: 700;
+}
+
+.cs-invoice-buttons button.dropdown {
+    background: #FFFFFF !important;
+    color: #1B1B1B !important;
+    border-color: #A8A8A8;
+}
+
+.cs-invoice-buttons button img {
+    margin-right: 4px;
+}
+/* INVOICE */
