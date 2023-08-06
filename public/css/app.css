@@ -386,3 +386,7 @@ input:checked + .cs-slider:before {
 .cs-btn-icon.danger {
     background: #E31931;
 }
+
+.cs-btn-icon.success {
+    background: #7BB43F;
+}

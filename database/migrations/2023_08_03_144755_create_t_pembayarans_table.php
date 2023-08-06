@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('t_pembayaran', function (Blueprint $table) {
             $table->bigIncrements('ID_PEMBAYARAN');
             $table->unsignedBigInteger('ID_TAGIHAN');
-            $table->integer('ID_PAYMENT_GATEWAY'); // tabel referensi tidak diketahui
+            $table->unsignedBigInteger('ID_PAYMENT_GATEWAY'); // tabel referensi tidak diketahui, menambahkan manual kebutuhan views
             $table->integer('ID_PROMOSI'); // tabel referensi tidak diketahui
             $table->integer('ID_VOUCHER'); // tabel referensi tidak diketahui
             $table->integer('ID_TERMIN_B2B'); // tabel referensi tidak diketahui
@@ -34,6 +34,7 @@ return new class extends Migration
             $table->dateTime('UPDATED_AT');
 
             $table->foreign('ID_TAGIHAN')->references('ID_TAGIHAN')->on('t_tagihan_produk')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ID_PAYMENT_GATEWAY')->references('ID_PAYMENT_GATEWAY')->on('m_payment_gateway')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -27,4 +27,8 @@ class T_berlangganan_produk extends Model
     public function detail_tagihan(): BelongsTo {
         return $this->belongsTo(T_detail_tagihan::class, 'ID_BERLANGGANAN');
     }
+
+    public function paket_produk(): BelongsTo {
+        return $this->belongsTo(M_paket_produk::class, 'ID_PAKET_PRODUK');
+    }
 }

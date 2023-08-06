@@ -1,0 +1,143 @@
+/* Wrap */
+.cs-wrap-content {
+    border-radius: 20px;
+    min-height: calc(100vh - 74px - 72px);
+}
+
+.cs-wrap-content > div {
+    padding: 16px 27px;
+}
+
+/* Content Header */
+.cs-content-header {
+    margin-bottom: 12px;
+}
+
+.cs-content-title h2 {
+    color: var(--dark-ticmi, #18120F);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0;
+    margin-top: 11px;
+}
+
+/* Footer */
+.cs-footer-actions {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 312px);
+    background: #ffffff;
+}
+
+.cs-footer-actions > div {
+    padding: 19px 38px 15px 38px;
+}
+
+.cs-footer-form .cs-label span {
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    margin-right: 12px;
+    top: 10px;
+    position: relative;
+}
+
+.cs-footer-back-btn {
+    padding: 10px 22px;
+    border-radius: 5px;
+    background: var(--icon-send-message, #2476F2); 
+    color: var(--white-ticmi, #FFF);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.cs-footer-back-btn span {
+    margin-left: 10px;
+}
+
+/* Table */
+.cs-invoice {
+    color: #E31931;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cs-resend-invoice {
+    color: #7BB43F;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline; 
+    display: block;
+}
+
+.cs-list-produk {
+    color: #1B6FBC;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline; 
+}
+
+.cs-list-produk span {
+    margin-left: 4px;
+}
+
+/* Search table */
+.cs-search-table {
+    height: 42px;
+    max-width: 374px;
+     /* position: absolute; */
+    margin-left: 0;
+    /* z-index: 10; */
+}
+
+.cs-search-table input {
+    border-radius: 50px !important;
+    border: 1px solid #C0C0C0;
+    background: #FFF;
+    padding-left: 22px;
+    padding-right: 100px;
+}
+
+.cs-search-table .input-group-text {
+    border-radius: 50px !important;
+    background: #7BB43F;
+    padding-left: 12px;
+    padding-right: 12px;
+    right: 0;
+    position: absolute;
+    height: 42px;
+    z-index: 6;
+}
+
+.cs-search-table .input-group-text .icon {
+    margin-right: 6px;
+}
+
+.cs-search-table .input-group-text .label {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+/* Hide show entries */
+.dataTables_length {
+    display: none;
+}

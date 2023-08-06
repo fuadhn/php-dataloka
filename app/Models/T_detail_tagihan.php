@@ -27,4 +27,8 @@ class T_detail_tagihan extends Model
     public function tagihan_produk(): BelongsTo {
         return $this->belongsTo(T_tagihan_produk::class, 'ID_TAGIHAN');
     }
+
+    public function berlangganan_produk(): BelongsTo {
+        return $this->belongsTo(T_berlangganan_produk::class, 'ID_BERLANGGANAN');
+    }
 }

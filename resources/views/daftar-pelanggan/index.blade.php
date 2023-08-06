@@ -148,10 +148,10 @@
                         </label>
                     </td>
                     <td>
-                        <a href="{{ route('inbox.search', $row->ID_PELANGGAN) }}/" class="cs-btn-icon primary">
+                        <a href="{{ route('inbox.search', $row->ID_PELANGGAN) }}" class="cs-btn-icon primary">
                             <img src="{{ URL::asset('img/icon-btn-send.svg') }}" alt="" />
                         </a>
-                        <a href="#" class="cs-btn-icon warning">
+                        <a href="{{ route('profil_pelanggan.index', $row->ID_PELANGGAN) }}" class="cs-btn-icon warning">
                             <img src="{{ URL::asset('img/icon-btn-pencil.svg') }}" alt="" />
                         </a>
                         <a href="#" class="cs-btn-icon danger cs-delete-pelanggan" data-id="{{ $row->ID_PELANGGAN }}">
