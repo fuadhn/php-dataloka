@@ -17,7 +17,7 @@ use App\Http\Controllers\ProfilPelangganController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/daftar-pelanggan');
 });
 
 Route::get('/daftar-pelanggan', [DaftarPelangganController::class, 'index'])->name('daftar_pelanggan.list');
