@@ -54,6 +54,35 @@ function get_harga_satuan($id_tagihan) {
     }
 }
 
+function get_daftar_produk($id_tagihan) {
+    // Get all id berlangganan
+    $arr_id_berlangganan = [];
+    $arr_qty = [];
+    $detail_tagihan = T_detail_tagihan::with('berlangganan_produk')->where('ID_TAGIHAN', $id_tagihan)->get();
+
+    foreach($detail_tagihan as $row) {
+        if(!is_null($row->berlangganan_produk)) {
+            if(!in_array($row->berlangganan_produk->ID_BERLANGGANAN, $arr_id_berlangganan)) {
+                $arr_id_berlangganan[] = $row->berlangganan_produk->ID_BERLANGGANAN;
+                $arr_qty[] = $row->JUMLAH;
+            }
+        }
+    }
+
+    $berlangganan_produk = T_berlangganan_produk::with('paket_produk')->whereIn('ID_BERLANGGANAN', $arr_id_berlangganan)->get();
+
+    $arr_produk = [];
+
+    $i=0;
+    foreach($berlangganan_produk as $row) {
+        $arr_produk[] = $row->paket_produk->NAMA_PRODUK . " x " . $arr_qty[$i];
+
+        $i++;
+    }
+
+    return $arr_produk;
+}
+
 function get_jenis_pembayaran($id_tagihan) {
     if(T_pembayaran::where('ID_TAGIHAN', $id_tagihan)->exists()) {
         $pembayaran = T_pembayaran::with('metode_pembayaran')->where('ID_TAGIHAN', $id_tagihan)->first();

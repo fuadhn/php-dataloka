@@ -177,10 +177,21 @@
                     <td>{{ date('d-m-Y', strtotime($row->TANGGAL_TAGIHAN)) }}</td>
                     <td>{{ get_jenis_pembayaran($row->ID_TAGIHAN) }}</td>
                     <td>
-                        <a href="#" class="cs-list-produk">
-                            <img src="{{ URL::asset('img/icon-list-produk.svg') }}" alt="" />
-                            <span>Lihat Daftar</span>
-                        </a>
+                        <div class="dropdown">
+                            <a href="#" class="cs-list-produk dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ URL::asset('img/icon-list-produk.svg') }}" alt="" />
+                                <span>Lihat Daftar</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @php
+                                $daftar_produk = get_daftar_produk($row->ID_TAGIHAN);
+                                
+                                foreach($daftar_produk as $item) {
+                                    echo '<li><div class="dropdown-item text-sm">' . $item . '</div></li>';
+                                }
+                                @endphp
+                            </ul>
+                        </div>
                     </td>
                     <td>{{ $row->TOTAL_ITEM }}</td>
                     <td>{{ get_harga_satuan($row->ID_TAGIHAN) }}</td>
