@@ -24,6 +24,10 @@ class M_pelanggan extends Model
      */
     protected $primaryKey = 'ID_PELANGGAN';
 
+    public function kyc(): BelongsTo {
+        return $this->belongsTo(M_kyc_pelanggan::class, 'ID_KYC');
+    }
+
     public function berlangganan_produk(): BelongsTo {
         return $this->belongsTo(T_berlangganan_produk::class, 'ID_PELANGGAN');
     }

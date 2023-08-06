@@ -196,3 +196,103 @@
     font-weight: 700;
     line-height: normal; 
 }
+
+/* Profil Pelanggan */
+.cs-profil-pelanggan .column-1 {
+    width: 220px;
+}
+
+.cs-profil-pelanggan .column-1 > div {
+    padding: 25px 39px 25px 44px;
+}
+
+.cs-profil-pelanggan .column-1 > div .avatar {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 24px;
+}
+
+.cs-profil-pelanggan .column-2 {
+    width: calc(100% - 220px - 158px);
+}
+
+.cs-profil-pelanggan .column-2 > div {
+    padding-bottom: 26px;
+    padding-top: 26px;
+}
+
+.cs-profil-pelanggan .column-3 {
+    width: 158px;
+}
+
+.cs-profil-pelanggan .column-3 > div {
+    padding: 11px 9px;
+}
+
+.cs-profil-btn {
+    border: 1px solid transparent; 
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    height: 40px;
+}
+
+.cs-profil-btn.bg-success {
+    background: #7BB43F !important;
+    color: #ffffff !important;
+    border-color: #7BB43F;
+}
+
+.cs-profil-btn.bg-success-transparent {
+    background: #FFFFFF !important;
+    color: #7BB43F !important;
+    border-color: #7BB43F;
+}
+
+.cs-profil-btn.bg-danger {
+    background: #E31931 !important;
+    color: #FFFFFF !important;
+    border-color: #E31931;
+}
+
+.cs-profil-btn.bg-dark {
+    background: #1B1B1B !important;
+    color: #FFFFFF !important;
+    border-color: #1B1B1B;
+}
+
+.cs-profil-btn img {
+    margin-right: 4px;
+}
+
+.cs-profil-nama {
+    color: #000;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.cs-profil-email {
+    color: #252525;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    margin-bottom: 16px;
+}
+
+.cs-profil-meta tbody tr td {
+    color: #252525;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-right: 5px; 
+}

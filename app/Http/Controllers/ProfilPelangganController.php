@@ -18,7 +18,7 @@ class ProfilPelangganController extends Controller
             $id_paket_produk = $request->id_paket_produk;
             $status_berlangganan = $request->status_berlangganan;
             $daterange = $request->daterange;
-            $pelanggan = M_pelanggan::find($id_pelanggan)->first();
+            $pelanggan = M_pelanggan::with('kyc')->find($id_pelanggan)->first();
             $tanggal_mulai = null;
             $tanggal_akhir = null;
             if(!is_null($daterange)) {

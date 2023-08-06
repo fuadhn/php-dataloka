@@ -12,6 +12,67 @@
 @section('content')
 <div class="bg-white cs-wrap-content">
     <div>
+        <div class="d-flex flex-row w-100 cs-profil-pelanggan">
+            <div class="column-1">
+                <div>
+                    <img class="avatar" src="{{ $pelanggan->PROFILE_PHOTO }}" alt="" />
+                    <a href="#">
+                        <button type="button" class="btn bg-success-transparent text-white text-uppercase mb-2 cs-profil-btn">
+                            <span>Lihat KYC</span>
+                        </button>
+                    </a>
+                    <a href="{{ route('inbox.search', $pelanggan->ID_PELANGGAN) }}">
+                        <button type="button" class="btn bg-success text-white text-uppercase cs-profil-btn">
+                            <img class="icon" src="{{ URL::asset('img/icon-send-white.svg') }}" alt="" />
+                            <span>Lihat Pesan</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="column-2">
+                <div>
+                    <h2 class="cs-profil-nama">{{ $pelanggan->NAMA_PELANGGAN }}</h2>
+                    <p class="cs-profil-email">{{ $pelanggan->EMAIL }}</p>
+
+                    <table class="cs-profil-meta">
+                        <tbody>
+                            <tr>
+                                <td>Bergabung</td>
+                                <td>:</td>
+                                <td>{{ $pelanggan->kyc->TGL_MULAI_AKTIF }}</td>
+                            </tr>
+                            <tr>
+                                <td>User ID</td>
+                                <td>:</td>
+                                <td>{{ $pelanggan->ID_PELANGGAN }}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>:</td>
+                                <td>{{ $pelanggan->kyc->STATUS_AKTIF }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="column-3">
+                <div>
+                    <p class="mb-2">Status Akun :</p>
+
+                    <a href="#">
+                        <button type="button" class="btn bg-danger text-white text-uppercase mb-2 cs-profil-btn">
+                            <span>Delete</span>
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button type="button" class="btn bg-dark text-white text-uppercase cs-profil-btn">
+                            <span>Suspend</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="d-inline-block w-100 align-middle cs-content-header">
             <div class="float-start">
                 <div class="cs-content-title">
