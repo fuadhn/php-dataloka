@@ -39,7 +39,7 @@
                             <tr>
                                 <td>Bergabung</td>
                                 <td>:</td>
-                                <td>{{ $pelanggan->kyc->TGL_MULAI_AKTIF }}</td>
+                                <td>{{ date('d M Y', strtotime($pelanggan->kyc->TGL_MULAI_AKTIF)) }}</td>
                             </tr>
                             <tr>
                                 <td>User ID</td>
@@ -49,7 +49,7 @@
                             <tr>
                                 <td>Status</td>
                                 <td>:</td>
-                                <td>{{ $pelanggan->kyc->STATUS_AKTIF }}</td>
+                                <td>{{ ($pelanggan->kyc->STATUS_AKTIF == 'Y' ? 'Aktif' : 'Tidak Aktif') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,16 +59,29 @@
                 <div>
                     <p class="mb-2">Status Akun :</p>
 
-                    <a href="#">
+                    @if($pelanggan->STATUS_AKUN != 'aktif')
+                    <a href="#" class="cs-aktifkan-pelanggan" data-id="{{ $pelanggan->ID_PELANGGAN }}">
+                        <button type="button" class="btn bg-primary text-white text-uppercase mb-2 cs-profil-btn">
+                            <span>Aktifkan</span>
+                        </button>
+                    </a>
+                    @endif
+
+                    @if($pelanggan->STATUS_AKUN != 'delete')
+                    <a href="#" class="cs-delete-pelanggan" data-id="{{ $pelanggan->ID_PELANGGAN }}">
                         <button type="button" class="btn bg-danger text-white text-uppercase mb-2 cs-profil-btn">
                             <span>Delete</span>
                         </button>
                     </a>
-                    <a href="#">
+                    @endif
+                    
+                    @if($pelanggan->STATUS_AKUN != 'suspend')
+                    <a href="#" class="cs-suspend-pelanggan" data-id="{{ $pelanggan->ID_PELANGGAN }}">
                         <button type="button" class="btn bg-dark text-white text-uppercase cs-profil-btn">
                             <span>Suspend</span>
                         </button>
                     </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -270,6 +283,84 @@
         // $('.cs-search-table input').keyup(function() {
         //     _table.columns(1).search( $(this).val() ).draw();
         // })
+
+        $('.cs-aktifkan-pelanggan').on('click', (function(e) {
+            e.preventDefault();
+
+            var _url = "{{ route('api.update_status_akun') }}";
+            var _id_pelanggan = $(this).data('id');
+            var _confirm = confirm('Apakah Anda yakin ingin mengaktifkan pelanggan ini?');
+
+            if(_confirm) {
+                $.ajax({
+                    method: 'PUT',
+                    url: _url,
+                    data: 'id_pelanggan=' + _id_pelanggan + '&status_akun=aktif',
+                    dataType: 'json',
+                    processData: false,
+                    success: function(response) {
+                        // Silent is gold
+                        console.log(response); // this is for debug only
+
+                        document.location.href = "";
+                    }
+                })
+            } else {
+                // Silent is gold
+            }
+        }))
+
+        $('.cs-delete-pelanggan').on('click', (function(e) {
+            e.preventDefault();
+
+            var _url = "{{ route('api.update_status_akun') }}";
+            var _id_pelanggan = $(this).data('id');
+            var _confirm = confirm('Apakah Anda yakin ingin menghapus pelanggan ini?');
+
+            if(_confirm) {
+                $.ajax({
+                    method: 'PUT',
+                    url: _url,
+                    data: 'id_pelanggan=' + _id_pelanggan + '&status_akun=delete',
+                    dataType: 'json',
+                    processData: false,
+                    success: function(response) {
+                        // Silent is gold
+                        console.log(response); // this is for debug only
+
+                        document.location.href = "";
+                    }
+                })
+            } else {
+                // Silent is gold
+            }
+        }))
+
+        $('.cs-suspend-pelanggan').on('click', (function(e) {
+            e.preventDefault();
+
+            var _url = "{{ route('api.update_status_akun') }}";
+            var _id_pelanggan = $(this).data('id');
+            var _confirm = confirm('Apakah Anda yakin ingin suspend pelanggan ini?');
+
+            if(_confirm) {
+                $.ajax({
+                    method: 'PUT',
+                    url: _url,
+                    data: 'id_pelanggan=' + _id_pelanggan + '&status_akun=suspend',
+                    dataType: 'json',
+                    processData: false,
+                    success: function(response) {
+                        // Silent is gold
+                        console.log(response); // this is for debug only
+
+                        document.location.href = "";
+                    }
+                })
+            } else {
+                // Silent is gold
+            }
+        }))
     } );
 </script>
 @endsection

@@ -266,6 +266,12 @@
     border-color: #1B1B1B;
 }
 
+.cs-profil-btn.bg-primary {
+    background: #1B6FBC !important;
+    color: #FFFFFF !important;
+    border-color: #1B6FBC;
+}
+
 .cs-profil-btn img {
     margin-right: 4px;
 }

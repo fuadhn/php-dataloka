@@ -21,7 +21,7 @@ class DaftarPelangganController extends Controller
             $tanggal_akhir = date('Y-m-d', strtotime($arr_date[1]));
         }
 
-        $paket_produk = M_paket_produk::get();
+        $paket_produk = M_paket_produk::where('DELETED', 0)->get();
         $pelanggan = M_pelanggan::with(['berlangganan_produk' => function($query) use ($tanggal_mulai, $tanggal_akhir, $id_paket_produk) {
             if(!is_null($tanggal_mulai)) {
                 $query->whereDate('TANGGAL_MULAI', '>=', $tanggal_mulai);
@@ -37,7 +37,7 @@ class DaftarPelangganController extends Controller
         }])
         ->where('STATUS_AKUN', '!=', 'delete');
 
-        $pelanggan = $pelanggan->get();
+        $pelanggan = $pelanggan->where('DELETED', 0)->get();
 
         // Get min max date
         $min_date = 0;

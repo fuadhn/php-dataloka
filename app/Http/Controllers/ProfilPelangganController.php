@@ -13,12 +13,12 @@ class ProfilPelangganController extends Controller
 {
     public function index(Request $request, $id_pelanggan=null) {
         if(M_pelanggan::where('ID_PELANGGAN', $id_pelanggan)->exists()) {
-            $paket_produk = M_paket_produk::get();
+            $paket_produk = M_paket_produk::where('DELETED', 0)->get();
             $no_invoice = $request->no_invoice;
             $id_paket_produk = $request->id_paket_produk;
             $status_berlangganan = $request->status_berlangganan;
             $daterange = $request->daterange;
-            $pelanggan = M_pelanggan::with('kyc')->find($id_pelanggan)->first();
+            $pelanggan = M_pelanggan::with('kyc')->find($id_pelanggan)->where('DELETED', 0)->first();
             $tanggal_mulai = null;
             $tanggal_akhir = null;
             if(!is_null($daterange)) {
@@ -45,7 +45,7 @@ class ProfilPelangganController extends Controller
                 $berlangganan_produk = $berlangganan_produk->where('ID_PAKET_PRODUK', $id_paket_produk);
             }
 
-            $berlangganan_produk = $berlangganan_produk->get();
+            $berlangganan_produk = $berlangganan_produk->where('DELETED', 0)->get();
 
             foreach($berlangganan_produk as $row) {
                 if(!is_null($row->detail_tagihan)) {
@@ -69,7 +69,7 @@ class ProfilPelangganController extends Controller
                 $tagihan = $tagihan->where('NOMOR_TAGIHAN', 'like', '%' . $no_invoice . '%');
             }
 
-            $tagihan = $tagihan->get();
+            $tagihan = $tagihan->where('DELETED', 0)->get();
 
             // Get min max date
             $min_date = 0;
